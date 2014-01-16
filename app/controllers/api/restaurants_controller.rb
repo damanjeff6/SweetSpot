@@ -2,7 +2,7 @@ class Api::RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurants.all
-    render :json => @restaurants
+    render :json => @restaurants.to_json(include: :addresses)
   end
 
   def create
