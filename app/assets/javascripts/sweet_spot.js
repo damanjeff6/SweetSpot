@@ -4,7 +4,7 @@ window.SweetSpot = {
   Views: {},
   Routers: {},
   initialize: function() {
-
+		
   }
 };
 
