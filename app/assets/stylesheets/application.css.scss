@@ -12,4 +12,12 @@
  *= require_tree .
  */
 
-@import "bootstrap"
+@import "bootstrap";
+
+.navbar-default .navbar-brand {
+    color: #C11B17;
+}
+
+//div {
+//  border: solid 1px #000;
+//}
