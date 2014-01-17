@@ -6,7 +6,6 @@ SS.Views.RestaurantShow = Backbone.View.extend({
     var that = this;
     that.$el.html(that.template({
       restaurant: that.model
-			address: that.model
     }));
     return this;
   }

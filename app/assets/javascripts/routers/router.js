@@ -18,12 +18,13 @@ SS.Routers.Router = Backbone.Router.extend({
 	},
 
 	show: function (id) {
+		var restaurant = this.restaurants.get(id);
 		var showView = new SS.Views.RestaurantShow({
-			model: this.restaurants.get(id)
+			model: restaurant
 		});
 
 		this._swapView(showView);
-	}
+	},
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
