@@ -29,7 +29,7 @@ SS.Routers.Router = Backbone.Router.extend({
 
 	new: function () {
 		var newView = new SS.Views.RestaurantNew({
-			model: new SS.Models.Restaurant()
+			collection: this.restaurants
 		});
 
 		this._swapView(newView);

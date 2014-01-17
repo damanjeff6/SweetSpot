@@ -1,9 +1,13 @@
-<h1><%=restaurant.get('name')%></h1>
-
-<%= restaurant.get("address").get('line1') %>
-<%= restaurant.get("address").get('line2') %>,
-<%= restaurant.get("address").get('city') %>,
-<%= restaurant.get("address").get('state') %>
-<%= restaurant.get("address").get('zip') %> <br>
-<%= restaurant.get('phone') %>,
-<%= restaurant.get('url') %>
+<div class="row">
+	<div class="col-md-12">
+		<h1><%=restaurant.get('name')%></h1>
+		<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
+		<%= restaurant.get("address").get('line1') %>
+		<%= restaurant.get("address").get('line2') %>,
+		<%= restaurant.get("address").get('city') %>,
+		<%= restaurant.get("address").get('state') %>
+		<%= restaurant.get("address").get('zip') %><br>
+		<%= restaurant.get('phone') %><br>
+		<%= restaurant.get('url') %>
+	</div>
+</div>

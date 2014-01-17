@@ -5,14 +5,14 @@ class Api::RestaurantsController < ApplicationController
     render :json => @restaurants.to_json(include: :address)
   end
 
-  # def create
-  #   @restaurant = Restaurant.new(params[:restaurant])
-  #   if @restaurant.save
-  #     render :json => @restaurant
-  #   else
-  #     render :json => @restaurant.errors.full_messages, :status => 422
-  #   end
-  # end
+  def create
+    @restaurant = Restaurant.new(params[:restaurant])
+    if @restaurant.save
+      render :json => @restaurant
+    else
+      render :json => @restaurant.errors.full_messages, :status => 422
+    end
+  end
   #
   # def show
   #   @restaurant = Restaurant.find(params[:id])

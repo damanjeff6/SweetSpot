@@ -4,5 +4,11 @@ SS.Models.Restaurant = Backbone.Model.extend({
 		var address = data.address;
 		data.address = new SS.Models.Address(address, {parse: true});
 		return data;
-	}
+	},
+
+  toJSON: function () {
+		var data = {restaurant: this.attributes};
+    // data.restaurant.address = this.get('address').toJSON();
+		return data;
+  }
 })
