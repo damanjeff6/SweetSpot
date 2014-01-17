@@ -7,6 +7,7 @@ SS.Routers.Router = Backbone.Router.extend({
 	routes: {
 		"": "index",
 		"restaurant/:id": "show",
+		"restaurants/new": "new"
 	},
 
 	index: function(){
@@ -24,6 +25,14 @@ SS.Routers.Router = Backbone.Router.extend({
 		});
 
 		this._swapView(showView);
+	},
+
+	new: function () {
+		var newView = new SS.Views.RestaurantNew({
+			model: new SS.Models.Restaurant()
+		});
+
+		this._swapView(newView);
 	},
 
   _swapView: function (view) {

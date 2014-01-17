@@ -1,5 +1,5 @@
 <% restaurants.each(function (restaurant) { %>
   <li>
-    <a href="#/restaurants/<%= restaurant.escape('id') %>"><%= restaurant.escape("name") %></a>
+    <a href="#restaurant/<%= restaurant.escape('id') %>"><%= restaurant.escape("name") %></a>
   </li>
 <% }); %>

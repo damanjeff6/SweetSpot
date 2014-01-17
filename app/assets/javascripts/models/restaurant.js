@@ -1,7 +1,8 @@
 SS.Models.Restaurant = Backbone.Model.extend({
-	// parse: function (data) {
-	// 	var addresses = data.addresses;
-	// 	data.addresses = new SS.Collections.Addresses(addresses);
-	// 	return data;
-	// }
+	parse: function (data) {
+		// console.log(JSON.stringify(data, null, "\t"))
+		var address = data.address;
+		data.address = new SS.Models.Address(address, {parse: true});
+		return data;
+	}
 })
