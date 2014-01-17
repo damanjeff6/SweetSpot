@@ -4,11 +4,12 @@ window.SS = {
   Views: {},
   Routers: {},
   initialize: function() {
-		SS.restaurants = new SS.Collections.Restaurants();
+    var $rootEl = $('#content');
 
-		SS.restaurants.fetch({
+		var restaurants = new SS.Collections.Restaurants();
+		restaurants.fetch({
 			success: function () {
-				new SS.Router({ $rootEl: $('main') });
+				new SS.Routers.Router( restaurants, $rootEl );
 				Backbone.history.start();
 			}
 		});
@@ -16,5 +17,5 @@ window.SS = {
 };
 
 $(document).ready(function(){
-  SweetSpot.initialize();
+  SS.initialize();
 });

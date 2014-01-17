@@ -21,7 +21,8 @@ class UsersController < ApplicationController
     if params.include?(:id)
       @user = User.find(params[:id])
     else
-      redirect_to user_url(current_user)
+      # redirect_to "user_url(current_user)"
+      redirect_to "/"
     end
   end
 end

@@ -1,18 +1,29 @@
 SS.Routers.Router = Backbone.Router.extend({
-	initialize: function (options) {
-		this.$rootEl = options.$rootEl;
+	initialize: function (restaurants, $rootEl) {
+		this.$rootEl = $rootEl;
+		this.restaurants = restaurants;
 	},
 
 	routes: {
-		"": "index"
+		"": "index",
+		"restaurant/:id": "show",
 	},
 
 	index: function(){
-		var view = new SS.Views.RestaurantsIndex({
-			collection: SS.restaurants
+		var that = this;
+		var indexView = new SS.Views.RestaurantsIndex({
+			collection: that.restaurants
 		});
-		this._swapView(view);
+		that._swapView(indexView);
 	},
+
+	show: function (id) {
+		var showView = new SS.Views.RestaurantShow({
+			model: this.restaurants.get(id)
+		});
+
+		this._swapView(showView);
+	}
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
