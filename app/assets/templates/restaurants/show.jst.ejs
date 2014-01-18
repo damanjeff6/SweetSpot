@@ -1,13 +1,45 @@
 <div class="row">
 	<div class="col-md-12">
-		<h1><%=restaurant.get('name')%></h1>
-		<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
-		<%= restaurant.get("address").get('line1') %>
-		<%= restaurant.get("address").get('line2') %>,
-		<%= restaurant.get("address").get('city') %>,
-		<%= restaurant.get("address").get('state') %>
-		<%= restaurant.get("address").get('zip') %><br>
-		<%= restaurant.get('phone') %><br>
-		<%= restaurant.get('url') %>
+		<div class="row">
+			<h1><%=restaurant.get('name')%></h1>
+			<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
+			<%= restaurant.get("address").get('line1') %>
+			<%= restaurant.get("address").get('line2') %>,
+			<%= restaurant.get("address").get('city') %>,
+			<%= restaurant.get("address").get('state') %>
+			<%= restaurant.get("address").get('zip') %>,
+			<%= restaurant.get('phone') %>,
+			<%= restaurant.get('url') %>
+		</div>
+
+		<div class="row">&nbsp;</div>
+
+		<div class="row">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="photo-map-tab-nav">
+			  <li class="active"><a href="#photo-tab" data-toggle="tab">Photos</a></li>
+			  <li><a href="#map-tab" data-toggle="tab">Map</a></li>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+			  <div class="tab-pane active" id="photo-tab">
+					<img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG"
+					     class="img-responsive">
+				</div>
+			  <div class="tab-pane" id="map-tab">
+				Map!
+				</div>
+			</div>
+		</div>
+
+		<div class="row">&nbsp;</div>
+
+		<div class="row">
+			<div class="reviews">
+				Reviews
+			</div>
+		</div>
+
 	</div>
 </div>

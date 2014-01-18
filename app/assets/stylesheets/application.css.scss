@@ -18,6 +18,36 @@
     color: #C11B17;
 }
 
+//photo tab size
+//#photo-tab {
+//	max-width: 800px;
+//	max-height: 600px;
+//}
+
+//map tab size
+//#map-tab {
+//	max-width: 800px;
+//	max-height: 600px;
+//}
+
+//borders around tabs
+.tab-content {
+		max-width:800px;
+		border-top: 1px solid #ddd;
+		border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}
+
+#photo-map-tab-nav {
+		border-bottom: none;
+}
+
 //div {
 //  border: solid 1px #000;
 //}

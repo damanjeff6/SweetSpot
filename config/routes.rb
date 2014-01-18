@@ -4,9 +4,9 @@ SweetSpot::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     resources :restaurants do
       resource :address
+      resources :reviews
     end
     resources :ratings
-    resources :reviews
   end
   root :to => "root#root"
 end

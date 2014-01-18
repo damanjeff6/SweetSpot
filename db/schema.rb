@@ -29,18 +29,6 @@ ActiveRecord::Schema.define(:version => 20140115184629) do
   add_index "addresses", ["state"], :name => "index_addresses_on_state"
   add_index "addresses", ["zip"], :name => "index_addresses_on_zip"
 
-  create_table "ratings", :force => true do |t|
-    t.integer  "user_id",       :null => false
-    t.integer  "restaurant_id", :null => false
-    t.integer  "rating",        :null => false
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "ratings", ["restaurant_id"], :name => "index_ratings_on_restaurant_id"
-  add_index "ratings", ["user_id", "restaurant_id"], :name => "index_ratings_on_user_id_and_restaurant_id", :unique => true
-  add_index "ratings", ["user_id"], :name => "index_ratings_on_user_id"
-
   create_table "restaurants", :force => true do |t|
     t.string   "name",       :null => false
     t.string   "phone"
@@ -55,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20140115184629) do
     t.integer  "user_id",       :null => false
     t.integer  "restaurant_id", :null => false
     t.text     "body",          :null => false
+    t.integer  "rating",        :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
