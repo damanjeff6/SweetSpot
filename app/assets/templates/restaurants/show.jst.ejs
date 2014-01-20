@@ -1,45 +1,93 @@
-<div class="row">
-	<div class="col-md-12">
-		<div class="row">
-			<h1><%=restaurant.get('name')%></h1>
-			<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
-			<%= restaurant.get("address").get('line1') %>
-			<%= restaurant.get("address").get('line2') %>,
-			<%= restaurant.get("address").get('city') %>,
-			<%= restaurant.get("address").get('state') %>
-			<%= restaurant.get("address").get('zip') %>,
-			<%= restaurant.get('phone') %>,
-			<%= restaurant.get('url') %>
-		</div>
 
-		<div class="row">&nbsp;</div>
 
-		<div class="row">
-			<!-- Nav tabs -->
-			<ul class="nav nav-tabs" id="photo-map-tab-nav">
-			  <li class="active"><a href="#photo-tab" data-toggle="tab">Photos</a></li>
-			  <li><a href="#map-tab" data-toggle="tab">Map</a></li>
-			</ul>
+<div class="container">
 
-			<!-- Tab panes -->
-			<div class="tab-content">
-			  <div class="tab-pane active" id="photo-tab">
-					<img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG"
-					     class="img-responsive">
-				</div>
-			  <div class="tab-pane" id="map-tab">
-				Map!
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="row">
+				<h1><%=restaurant.get('name')%></h1>
+				<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
+				<%= restaurant.get("address").escape('line1') %>
+				<%= restaurant.get("address").escape('line2') %>,
+				<%= restaurant.get("address").escape('city') %>,
+				<%= restaurant.get("address").escape('state') %>
+				<%= restaurant.get("address").escape('zip') %>,
+				<%= restaurant.escape('phone') %>,
+				<%= restaurant.escape('url') %>
+			</div>
+
+			<div class="row">&nbsp;</div>
+
+			<div class="row">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" id="photo-map-tab-nav">
+				  <li class="active"><a href="#photo-tab" data-toggle="tab">Photos</a></li>
+				  <li><a href="#map-tab" data-toggle="tab">Map</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+				  <div class="tab-pane active" id="photo-tab">
+						<img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG"
+						     class="img-responsive">
+					</div>
+				  <div class="tab-pane" id="map-tab">
+					Map!
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="row">&nbsp;</div>
+			<div class="row">&nbsp;</div>
 
-		<div class="row">
-			<div id="review-section">
-				Reviews
+			<div class="row">
+
+				<form role="form" id="review-form">
+					<div class="row">
+				    <label class="sr-only" for="review_body">Review</label>
+						<div class="col-xs-12">
+				   		<textarea class="form-control" name="restaurant[review_attributes][body]" id="review_body" placeholder="Start your review..."></textarea>
+						</div>
+				  </div>
+
+					<div class="row">&nbsp;</div>
+
+				  <div class="row" id="review-form-submit-container">
+						<div class="col-xs-1">
+							<label for="review_rating">Rating:</label>
+						</div>
+						<div class="col-xs-1">
+							<select class="form-control" name="restaurant[review_attributes][rating]" id="review_rating">
+							  <option>5</option>
+							  <option>4</option>
+							  <option>3</option>
+							  <option>2</option>
+							  <option>1</option>
+							</select>
+						</div>
+						<div class="col-xs-9">
+						</div>
+						<div class="col-xs-1">
+							<button id="submit-review" class="btn btn-warning ">Submit!</button>
+						</div>
+				  </div>
+				</form>
+
 			</div>
-		</div>
 
+			<div class="row">&nbsp;</div>
+
+			<div class="row">
+				<ul id="review-section">
+					<% restaurant.get("reviews").each(function (review) { %>
+						<li>
+							<%= review.escape('user_id') %>: <%= review.escape('body') %>, Rating: <%= review.escape('rating') %>
+						</li>
+					<% }); %>
+				</ul>
+			</div>
+
+		</div>
 	</div>
+
 </div>

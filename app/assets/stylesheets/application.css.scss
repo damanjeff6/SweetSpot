@@ -32,7 +32,7 @@
 
 //borders around tabs
 .tab-content {
-		max-width:800px;
+		max-width: 800px;
 		border-top: 1px solid #ddd;
 		border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
@@ -40,14 +40,31 @@
     padding: 10px;
 }
 
+//remove line under Photo/Map tab
 .nav-tabs {
     margin-bottom: 0;
 }
 
+//remove line under Photo/Map tab
 #photo-map-tab-nav {
 		border-bottom: none;
 }
 
+//fixed review textarea size
+#review_body{
+  max-width:800px;
+	min-height:100px;
+}
+
+//fixed rating with
+#review_rating{
+	width:60px;
+}
+
+//fixed width size of review form submit button
+#review-form-submit-container{
+	max-width:780px;
+}
 //div {
 //  border: solid 1px #000;
 //}

@@ -1,8 +1,9 @@
 class Api::RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.includes(:address)
-    render :json => @restaurants.to_json(include: :address)
+    @restaurants = Restaurant.includes(:address, :reviews)
+
+    render :json => @restaurants.to_json(:include => [:address, :reviews])
   end
 
   def create

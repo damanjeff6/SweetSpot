@@ -6,47 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(:name => 'Smitten Ice Cream',
-                  :phone => '(415) 863-1518',
-                  :url => 'smittenicecream.com')
+Restaurant.create(:name => 'Smitten Ice Cream', :phone => '(415) 863-1518', :url => 'smittenicecream.com')
 
-Address.create(:restaurant_id => 1,
-               :line1 => '432 Octavia St',
-               :line2 => 'Ste 1A',
-               :city => 'San Francisco',
-               :state => 'CA',
-               :zip => '94102')
+Address.create(:restaurant_id => 1, :line1 => '432 Octavia St', :line2 => 'Ste 1A', :city => 'San Francisco', :state => 'CA', :zip => '94102')
 
-Restaurant.create(:name => 'Pinkberry',
-                  :phone => '(415) 391-1529',
-                  :url => 'pinkberry.com')
+Restaurant.create(:name => 'Pinkberry', :phone => '(415) 391-1529', :url => 'pinkberry.com')
 
-Address.create(:restaurant_id => 2,
-               :line1 => '170 O\'Farrell St',
-               :line2 => '',
-               :city => 'San Francisco',
-               :state => 'CA',
-               :zip => '94102')
+Address.create(:restaurant_id => 2, :line1 => '170 O\'Farrell St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94102')
 
-Restaurant.create(:name => 'Cako',
-                   :phone => '(415) 895-2256',
-                   :url => 'cako.com')
+Restaurant.create(:name => 'Cako', :phone => '(415) 895-2256', :url => 'cako.com')
 
-Address.create(:restaurant_id => 3,
-                :line1 => '211 O\'Farrell St',
-                :line2 => '',
-                :city => 'San Francisco',
-                :state => 'CA',
-                :zip => '94102')
+Address.create(:restaurant_id => 3, :line1 => '211 O\'Farrell St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94102')
 
-Restaurant.create(:name => 'Pinkie\'s Bakery',
-                   :phone => '(415) 556-4900',
-                   :url => 'pinkiesbakerysf.com')
+Restaurant.create(:name => 'Pinkie\'s Bakery', :phone => '(415) 556-4900', :url => 'pinkiesbakerysf.com')
 
+Address.create(:restaurant_id => 4, :line1 => '1196 Folsom St', :line2 => 'Ste 342', :city => 'San Francisco', :state => 'CA', :zip => '94103')
 
-Address.create(:restaurant_id => 4,
-                :line1 => '1196 Folsom St',
-                :line2 => 'Ste 342',
-                :city => 'San Francisco',
-                :state => 'CA',
-                :zip => '94103')
+# Review.create(:user_id => 1, :restaurant_id => 1, :body => 'good food', :rating => 5)
+# Review.create(:user_id => 2, :restaurant_id => 1, :body => 'bad food', :rating => 1)
+# Review.create(:user_id => 1, :restaurant_id => 2, :body => 'great food', :rating => 4)
+# Review.create(:user_id => 1, :restaurant_id => 3, :body => 'ok food', :rating => 3)
+# Review.create(:user_id => 1, :restaurant_id => 4, :body => 'great food', :rating => 4)
