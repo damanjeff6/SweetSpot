@@ -4,14 +4,22 @@
 		<div class="col-md-12">
 
 			<div class="row">
+
+				<% var ratings_sum = 0; %>
+				<% var ratings_avg = 0; %>
+				<% restaurant.get("reviews").each(function (review) { %>
+				<%   ratings_sum += review.get("rating"); %>
+				<% }); %>
+				<% if (ratings_sum === 0) {ratings_avg = 'NA';} else { ratings_avg = ratings_sum / restaurant.get("reviews").length; } %>
+
 				<h1><%=restaurant.get('name')%></h1>
-				<h4><span class="label label-danger">4.5</span> <%=restaurant.get("reviews").length%> Reviews</h4>
+				<h4><span class="label label-danger"><%= ratings_avg %></span> <%=restaurant.get("reviews").length%> Reviews</h4>
 				<%= restaurant.get("address").get('line1') %>
 				<%= restaurant.get("address").get('line2') %>,
 				<%= restaurant.get("address").get('city') %>,
 				<%= restaurant.get("address").get('state') %>
 				<%= restaurant.get("address").get('zip') %>,
-				<%= restaurant.escape('phone') %>,
+				<span class="glyphicon glyphicon-earphone"></span> <%= restaurant.escape('phone') %>,
 				<%= restaurant.escape('url') %>
 			</div>
 
@@ -20,8 +28,9 @@
 			<div class="row">
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs" id="photo-map-tab-nav">
-				  <li class="active"><a href="#photo-tab" data-toggle="tab">Photos</a></li>
-				  <li><a href="#map-tab" data-toggle="tab">Map</a></li>
+				  <li class="active"><a href="#photo-tab" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Photo</a></li>
+				  <li><a href="#map-tab" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Map</a></li>
+					<li><a href="#street-tab" data-toggle="tab"><span class="glyphicon glyphicon-road"></span> Street</a></li>
 				</ul>
 
 				<!-- Tab panes -->
@@ -51,14 +60,20 @@
 
 						   <!-- Controls -->
 						   <a class="left carousel-control" href="#carousel-photo-tab" data-slide="prev">
+    					 		<span class="glyphicon glyphicon-chevron-left"></span>
 						   </a>
 						   <a class="right carousel-control" href="#carousel-photo-tab" data-slide="next">
+							 		<span class="glyphicon glyphicon-chevron-right"></span>
 						   </a>
 						</div>
 
 					</div>
 				  <div class="tab-pane" id="map-tab">
-					Map!
+						<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
+					</div>
+
+					<div class="tab-pane" id="street-tab">
+						<img src="http://maps.googleapis.com/maps/api/streetview?size=200x200&location=40.720032,-73.988354&heading=235&sensor=false">
 					</div>
 				</div>
 			</div>

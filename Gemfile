@@ -36,3 +36,6 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 
 # To use debugger
 # gem 'debugger'
+gem "figaro"
+gem "paperclip"
+gem "aws-sdk"

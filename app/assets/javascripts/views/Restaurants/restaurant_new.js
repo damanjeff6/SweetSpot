@@ -26,7 +26,7 @@ SS.Views.RestaurantNew = Backbone.View.extend({
 	},
 
   _navToShow: function (restaurant) {
-    Backbone.history.navigate("#restaurant/" + restaurant.id, {trigger: true });
+    Backbone.history.navigate("restaurant/" + restaurant.id, {trigger: true });
   }
 
 });

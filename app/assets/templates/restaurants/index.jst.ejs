@@ -1,5 +1,13 @@
-<% restaurants.each(function (restaurant) { %>
-  <li>
-    <a href="#restaurant/<%= restaurant.escape('id') %>"><%= restaurant.escape("name") %></a>
-  </li>
-<% }); %>
+<div class="container">
+	<h2>Browsing in San Francisco<p class="lead">Showing <%=restaurants.length%> Sweet Spots!</p></h2>
+	<div class="row">
+		<% restaurants.each(function (restaurant) { %>
+		  <div class="col-lg-4 col-sm-6 col-xs-12 lesspadding">
+		      <a href="#restaurant/<%= restaurant.escape('id') %>">
+							 <%= restaurant.escape("name") %>
+							 <img src="http://placehold.it/800x600" class="thumbnail img-responsive">
+		      </a>
+		  </div>
+		<% }); %>
+	</div>
+</div>
