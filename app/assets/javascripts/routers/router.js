@@ -21,6 +21,7 @@ SS.Routers.Router = Backbone.Router.extend({
 	show: function (id) {
 		var restaurant = this.restaurants.get(id);
 		var showView = new SS.Views.RestaurantShow({
+			collection: this.restaurants,
 			model: restaurant
 		});
 

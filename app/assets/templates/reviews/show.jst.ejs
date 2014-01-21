@@ -1,2 +1,7 @@
-<%= review.escape('user_id')%>: <%= review.escape('body') %><br>
-Rating: <%= restaurant.escape("rating") %>
+<% var user %>
+<% var date %>
+	<% user = _.find(USERS, function(obj) {return obj.id == review.escape('user_id')}) %>
+	<% date = new Date(review.escape('updated_at')) %>
+	<li>
+		<%= user['username'] %>: <%= review.escape('body') %>, Rating: <%= review.escape('rating') %>, <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %>
+	</li>

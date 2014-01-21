@@ -2,4 +2,14 @@
 Loading...
 </div>
 
+<script>
+	<% if !current_user.nil? %>
+	var CURRENT_USER_ID = <%= current_user.id %>;
+	<% else %>
+	var CURRENT_USER_ID = "";
+	<% end %>
+
+  var USERS = <%= User.all.to_json(:only => [:username, :id]).html_safe %>
+</script>
+
 

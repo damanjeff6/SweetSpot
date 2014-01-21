@@ -1,5 +1,3 @@
-
-
 <div class="container">
 
 	<div class="row">
@@ -7,12 +5,12 @@
 
 			<div class="row">
 				<h1><%=restaurant.get('name')%></h1>
-				<h4><span class="label label-danger">4.5</span> 1000 Reviews</h4>
-				<%= restaurant.get("address").escape('line1') %>
-				<%= restaurant.get("address").escape('line2') %>,
-				<%= restaurant.get("address").escape('city') %>,
-				<%= restaurant.get("address").escape('state') %>
-				<%= restaurant.get("address").escape('zip') %>,
+				<h4><span class="label label-danger">4.5</span> <%=restaurant.get("reviews").length%> Reviews</h4>
+				<%= restaurant.get("address").get('line1') %>
+				<%= restaurant.get("address").get('line2') %>,
+				<%= restaurant.get("address").get('city') %>,
+				<%= restaurant.get("address").get('state') %>
+				<%= restaurant.get("address").get('zip') %>,
 				<%= restaurant.escape('phone') %>,
 				<%= restaurant.escape('url') %>
 			</div>
@@ -29,8 +27,35 @@
 				<!-- Tab panes -->
 				<div class="tab-content">
 				  <div class="tab-pane active" id="photo-tab">
-						<img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG"
-						     class="img-responsive">
+
+						 <div id="carousel-photo-tab" class="carousel slide" data-ride="carousel" data-interval="false">
+						   <!-- Indicators -->
+						   <ol class="carousel-indicators">
+						     <li data-target="#carousel-photo-tab" data-slide-to="0" class="active"></li>
+						     <li data-target="#carousel-photo-tab" data-slide-to="1"></li>
+						     <li data-target="#carousel-photo-tab" data-slide-to="2"></li>
+						   </ol>
+
+						   <!-- Wrapper for slides -->
+						   <div class="carousel-inner">
+						     <div class="item active">
+						       <img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG" alt="...">
+						     </div>
+						     <div class="item">
+						       <img src="http://1.bp.blogspot.com/-staQhhouSvQ/T1_64EWDpHI/AAAAAAAACb0/rFmRcz0EDbs/s1600/Smitten_ice_cream_sizes.JPG" alt="...">
+						     </div>
+						     <div class="item">
+						       <img src="http://3.bp.blogspot.com/-asPmWHrJzjQ/TnLWwwYSRUI/AAAAAAAAHho/TcIWwvBsd4k/s1600/DSC_8140.JPG" alt="...">
+						     </div>
+						   </div>
+
+						   <!-- Controls -->
+						   <a class="left carousel-control" href="#carousel-photo-tab" data-slide="prev">
+						   </a>
+						   <a class="right carousel-control" href="#carousel-photo-tab" data-slide="next">
+						   </a>
+						</div>
+
 					</div>
 				  <div class="tab-pane" id="map-tab">
 					Map!
@@ -40,48 +65,58 @@
 
 			<div class="row">&nbsp;</div>
 
-			<div class="row">
+			<% var ALREADY_REVIEWED = false %>
+			<% restaurant.get("reviews").each(function (review) { %>
+			<%   if (review.get("user_id") === CURRENT_USER_ID) { ALREADY_REVIEWED = true; } %>
+			<% }); %>
 
-				<form role="form" id="review-form">
-					<div class="row">
-				    <label class="sr-only" for="review_body">Review</label>
-						<div class="col-xs-12">
-				   		<textarea class="form-control" name="restaurant[review_attributes][body]" id="review_body" placeholder="Start your review..."></textarea>
-						</div>
-				  </div>
+			<% if (CURRENT_USER_ID !== '' && !ALREADY_REVIEWED) {%>
+				<div class="row">
+					<form role="form" id="review-form">
 
-					<div class="row">&nbsp;</div>
+					<input type="hidden" name="review[restaurant_id]" id="review_restaurant_id" value="<%= restaurant.get('id')%>">
+					<input type="hidden" name="review[user_id]" id="review_user_id" value="<%= CURRENT_USER_ID %>">
+						<div class="row">
+					    <label class="sr-only" for="review_body">Review</label>
+							<div class="col-xs-12">
+					   		<textarea class="form-control" name="review[body]" id="review_body" placeholder="Start your review..."></textarea>
+							</div>
+					  </div>
+						<div class="row">&nbsp;</div>
+					  <div class="row" id="review-form-submit-container">
+							<div class="col-xs-1">
+								<label for="review_rating">Rating:</label>
+							</div>
+							<div class="col-xs-1">
+								<select class="form-control" name="review[rating]" id="review_rating">
+								  <option>5</option>
+								  <option>4</option>
+								  <option>3</option>
+								  <option>2</option>
+								  <option>1</option>
+								</select>
+							</div>
+							<div class="col-xs-9">
+							</div>
+							<div class="col-xs-1">
+								<button id="submit-review" class="btn btn-warning ">Submit!</button>
+							</div>
+					  </div>
+					</form>
+				</div>
 
-				  <div class="row" id="review-form-submit-container">
-						<div class="col-xs-1">
-							<label for="review_rating">Rating:</label>
-						</div>
-						<div class="col-xs-1">
-							<select class="form-control" name="restaurant[review_attributes][rating]" id="review_rating">
-							  <option>5</option>
-							  <option>4</option>
-							  <option>3</option>
-							  <option>2</option>
-							  <option>1</option>
-							</select>
-						</div>
-						<div class="col-xs-9">
-						</div>
-						<div class="col-xs-1">
-							<button id="submit-review" class="btn btn-warning ">Submit!</button>
-						</div>
-				  </div>
-				</form>
-
-			</div>
-
-			<div class="row">&nbsp;</div>
+				<div class="row">&nbsp;</div>
+			<% } %>
 
 			<div class="row">
 				<ul id="review-section">
+					<% var user %>
+					<% var date %>
 					<% restaurant.get("reviews").each(function (review) { %>
+						<% user = _.find(USERS, function(obj) {return obj.id == review.escape('user_id')}) %>
+						<% date = new Date(review.escape('updated_at')) %>
 						<li>
-							<%= review.escape('user_id') %>: <%= review.escape('body') %>, Rating: <%= review.escape('rating') %>
+							<%= user['username'] %>: <%= review.escape('body') %>, Rating: <%= review.escape('rating') %>, <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %>
 						</li>
 					<% }); %>
 				</ul>

@@ -5,8 +5,7 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(:restaurant_id => params[:restaurant_id],
-                         :user_id => current_user.id)
+    @review = Review.new(params[:review])
     if @review.save
       render :json => @review
     else

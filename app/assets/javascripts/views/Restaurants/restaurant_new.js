@@ -19,7 +19,9 @@ SS.Views.RestaurantNew = Backbone.View.extend({
 		var data = $('#rest-form').serializeJSON();
 
     this.collection.create(data['restaurant'], {
-			success: this._navToShow
+			success: function(){
+				this._navToShow;
+			}
 		});
 	},
 

@@ -1,6 +1,5 @@
 SS.Models.Restaurant = Backbone.Model.extend({
 	parse: function (data) {
-		// console.log(JSON.stringify(data, null, "\t"))
 		var address = data.address;
 		data.address = new SS.Models.Address(address, {parse: true});
 
@@ -11,8 +10,8 @@ SS.Models.Restaurant = Backbone.Model.extend({
 	},
 
   toJSON: function () {
-		var data = {restaurant: this.attributes};
-    // data.restaurant.address = this.get('address').toJSON();
+		var data = this.attributes;//{restaurant: this.attributes};
+
 		return data;
   }
 })

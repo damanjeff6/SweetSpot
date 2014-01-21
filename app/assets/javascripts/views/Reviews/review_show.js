@@ -1,11 +1,13 @@
 SS.Views.ReviewShow = Backbone.View.extend({
-  template: JST['reviews/review_show'],
-
-	tagName: 'li',
+  template: JST['reviews/show'],
 
   render: function () {
-    var content = this.template({ review: this.model });
-    this.$el.html(content);
+    var that = this;
+
+		that.$el.html(that.template({
+			review: this.model
+		}));
     return this;
   }
+
 });
