@@ -5,13 +5,15 @@ window.SS = {
   Routers: {},
   initialize: function() {
     var $rootEl = $('#content');
-		var $header = $('#header');
 
-		var restaurants = new SS.Collections.Restaurants();
+    var headerView = new SS.Views.Header({});
+    $('#header-content').html(headerView.render().$el);
 
-		restaurants.fetch({
+		SS.restaurants = new SS.Collections.Restaurants();
+
+		SS.restaurants.fetch({
 			success: function () {
-				new SS.Routers.Router( restaurants, $rootEl, $header );
+				new SS.Routers.Router( SS.restaurants, $rootEl);
 				Backbone.history.start();
 			}
 		});

@@ -14,21 +14,10 @@
 
 @import "bootstrap";
 
+//SweetSpot logo color
 .navbar-default .navbar-brand {
     color: #C11B17;
 }
-
-//photo tab size
-//#photo-tab {
-//	max-width: 800px;
-//	max-height: 600px;
-//}
-
-//map tab size
-//#map-tab {
-//	max-width: 800px;
-//	max-height: 600px;
-//}
 
 //borders around tabs
 .tab-content {
@@ -79,3 +68,47 @@
 .navbar {
     margin-bottom: 0;
 }
+
+//fix size of well around reviews
+.well-size {
+	max-width:800px;
+}
+
+//fix size of user icon
+.media-object {
+	max-width:64px;
+	max-height:64px;
+}
+
+//sign in
+#signup-container {
+  background: url(http://www.zastavki.com/pictures/1600x1200/2009/Food_Cakes_and_Sweet_Delicious_desserts_013219_.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+//create user page
+#create-user-page {
+  background: url(http://www.zastavki.com/pictures/1600x1200/2009/Food_Cakes_and_Sweet_Ice_Cream_Dessert_013218_.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+//create user page
+#new-location-page {
+  background: url(http://images7.alphacoders.com/334/334678.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.panel-default {
+opacity: 0.9;
+margin-top:30px;
+}
+.form-group.last { margin-bottom:0px; }

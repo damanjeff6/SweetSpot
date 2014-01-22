@@ -124,17 +124,33 @@
 			<% } %>
 
 			<div class="row">
-				<ul id="review-section">
+
+				<div class="well well-sm well-size">
+
+				<ul class="media-list" id="review-section">
 					<% var user %>
 					<% var date %>
 					<% restaurant.get("reviews").each(function (review) { %>
 						<% user = _.find(USERS, function(obj) {return obj.id == review.escape('user_id')}) %>
 						<% date = new Date(review.escape('updated_at')) %>
-						<li>
-							<%= user['username'] %>: <%= review.escape('body') %>, Rating: <%= review.escape('rating') %>, <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %>
-						</li>
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<li class="media">
+									<div class="pull-left">
+						      	<img class="media-object" src="http://whoateallthepies.tv/wp-content/uploads/2012/07/Obama-not-bad-meme-e1341318936848.jpg" alt="...">
+						    	</div>
+									<div class="media-body">
+										<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
+									 	<p><%= review.escape('body') %><br>
+										<strong>Rating: <%= review.escape('rating') %></strong></p>
+								  </div>
+								</li>
+							</div>
+						</div>
 					<% }); %>
 				</ul>
+
+				</div>
 			</div>
 
 		</div>

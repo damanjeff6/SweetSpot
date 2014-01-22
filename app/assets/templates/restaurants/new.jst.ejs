@@ -1,49 +1,78 @@
-<div class="row">
-	<div class="col-md-3">
-	</div>
-
-	<div class="col-md-5">
-
-	<h2>List a New Location<h2>
-
-	<form class="form-horizontal" id="rest-form">
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_name">Name</label>
-	    <input type="text" class="form-control" name="restaurant[name]" id="restaurant_name" placeholder="Location Name">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_line1">Address Line 1</label>
-	    <input type="text" class="form-control" name="restaurant[address_attributes][line1]" id="restaurant_line1" placeholder="Address Line 1">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_line2">Address Line 2</label>
-	    <input type="text" class="form-control" name="restaurant[address_attributes][line2]" id="restaurant_line2" placeholder="Address Line 2">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_city">City</label>
-	    <input type="text" class="form-control" name="restaurant[address_attributes][city]" id="restaurant_city" placeholder="City">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_state">State</label>
-	    <input type="text" class="form-control" name="restaurant[address_attributes][state]" id="restaurant_state" placeholder="State">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_zip">Zip</label>
-	    <input type="text" class="form-control" name="restaurant[address_attributes][zip]" id="restaurant_zip" placeholder="Zip">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_phone">phone</label>
-	    <input type="text" class="form-control" name="restaurant[phone]" id="restaurant_phone" placeholder="Phone">
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="restaurant_url">URL</label>
-	    <input type="text" class="form-control" name="restaurant[url]" id="restaurant_url" placeholder="URL">
-	  </div>
-		<div class="col-md-7">
-		</div>
-		<div class="col-md-5">
-			<button id="submit-new" class="btn btn-warning btn-block">Submit!</button>
-		</div>
-	</form>
-	</div>
+<div class="container" id="new-location-page">
+		<div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-6">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    List a New Location</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="rest-form" role="form">
+										<div class="form-group">
+                        <label for="restaurant_name" class="col-sm-3 control-label">
+                            Name</label>
+                        <div class="col-sm-9">
+                            <input type="txt" class="form-control" id="restaurant_name" name="restaurant[name]" placeholder="E.g Awesome Desset Shop" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_line1" class="col-sm-3 control-label">
+                            Address 1</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[address_attributes][line1]" class="form-control" id="restaurant_line1" placeholder="E.g. 333 Grant Ave" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_line2" class="col-sm-3 control-label">
+                            Address 2</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[address_attributes][line2]" class="form-control" id="restaurant_line2" placeholder="E.g. Apt 33" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_city" class="col-sm-3 control-label">
+                            City</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[address_attributes][city]" class="form-control" id="restaurant_city" placeholder="E.g. San Francisco" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_state" class="col-sm-3 control-label">
+                            State</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[address_attributes][state]" class="form-control" id="restaurant_state" placeholder="E.g. CA" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_zip" class="col-sm-3 control-label">
+                            Zip</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[address_attributes][zip]" class="form-control" id="restaurant_zip" placeholder="E.g. 94108" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_phone" class="col-sm-3 control-label">
+                            Phone</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[phone]" class="form-control" id="restaurant_phone" placeholder="E.g. (555)677-9108" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="restaurant_url" class="col-sm-3 control-label">
+                            URL</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="restaurant[url]" class="form-control" id="restaurant_url" placeholder="E.g. www.yelp.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group last">
+                        <div class="col-sm-offset-3 col-sm-9">
+														<button id="submit-new" class="btn btn-warning btn-sm">Submit!</button>
+                                 <button type="reset" class="btn btn-default btn-sm">
+                                Reset</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
