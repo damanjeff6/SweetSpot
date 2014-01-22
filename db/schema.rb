@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140115184629) do
+ActiveRecord::Schema.define(:version => 20140122052258) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "restaurant_id", :null => false
@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(:version => 20140115184629) do
   add_index "addresses", ["restaurant_id"], :name => "index_addresses_on_restaurant_id", :unique => true
   add_index "addresses", ["state"], :name => "index_addresses_on_state"
   add_index "addresses", ["zip"], :name => "index_addresses_on_zip"
+
+  create_table "pictures", :force => true do |t|
+    t.integer  "restaurant_id",               :null => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "{:null=>false}_file_name"
+    t.string   "{:null=>false}_content_type"
+    t.integer  "{:null=>false}_file_size"
+    t.datetime "{:null=>false}_updated_at"
+    t.text     "caption"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "pictures", ["restaurant_id"], :name => "index_pictures_on_restaurant_id"
 
   create_table "restaurants", :force => true do |t|
     t.string   "name",       :null => false

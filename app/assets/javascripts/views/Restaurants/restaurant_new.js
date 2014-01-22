@@ -3,7 +3,7 @@ SS.Views.RestaurantNew = Backbone.View.extend({
 	template: JST['restaurants/new'],
 
 	events: {
-		'click #submit-new': 'submit'
+		'click button#submit-new': 'submit'
 	},
 
   render: function () {
@@ -15,18 +15,19 @@ SS.Views.RestaurantNew = Backbone.View.extend({
   },
 
 	submit: function (event) {
+		var that = this;
 		event.preventDefault();
 		var data = $('#rest-form').serializeJSON();
 
     this.collection.create(data['restaurant'], {
-			success: function(){
-				this._navToShow;
+			success: function(restaurantData){
+				that._navToShow(restaurantData);
 			}
 		});
 	},
 
   _navToShow: function (restaurant) {
-    Backbone.history.navigate("restaurant/" + restaurant.id, {trigger: true });
+    Backbone.history.navigate("#restaurant/" + restaurant.id, {trigger: true });
   }
 
 });

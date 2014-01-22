@@ -1,9 +1,15 @@
 class Api::RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.includes(:address, :reviews)
+    if params[:address]
+      @restaurants = Restaurant.joins(:address)
+                               .includes(:address, :reviews, :pictures)
+                               .where("Addresses.city = ?", params[:address][:city])
+    else
+      @restaurants = Restaurant.includes(:address, :reviews, :pictures)
+    end
 
-    render :json => @restaurants.to_json(:include => [:address, :reviews])
+    render :json => @restaurants.to_json(:include => [:address, :reviews, :pictures])
   end
 
   def create

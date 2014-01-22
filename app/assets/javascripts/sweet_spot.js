@@ -6,7 +6,9 @@ window.SS = {
   initialize: function() {
     var $rootEl = $('#content');
 
-    var headerView = new SS.Views.Header({});
+    var headerView = new SS.Views.Header({
+    });
+
     $('#header-content').html(headerView.render().$el);
 
 		SS.restaurants = new SS.Collections.Restaurants();

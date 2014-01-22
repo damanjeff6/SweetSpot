@@ -31,6 +31,7 @@
 				  <li class="active"><a href="#photo-tab" data-toggle="tab"><span class="glyphicon glyphicon-picture"></span> Photo</a></li>
 				  <li><a href="#map-tab" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span> Map</a></li>
 					<li><a href="#street-tab" data-toggle="tab"><span class="glyphicon glyphicon-road"></span> Street</a></li>
+					<li><a href="#photo-upload-tab" data-toggle="tab"><span class="glyphicon glyphicon-paperclip"></span> Upload</a></li>
 				</ul>
 
 				<!-- Tab panes -->
@@ -75,6 +76,14 @@
 					<div class="tab-pane" id="street-tab">
 						<img src="http://maps.googleapis.com/maps/api/streetview?size=200x200&location=40.720032,-73.988354&heading=235&sensor=false">
 					</div>
+
+					<div class="tab-pane" id="photo-upload-tab">
+						<form id="new_photo_form" enctype="multipart/form-data">
+								<input type="hidden" name="picture[restaurant_id]" id="picture_restaurant_id" value="<%= restaurant.get('id')%>">
+								<input type="file" name="picture[photo]">
+						    <button id="submit-photo" class="btn btn-warning btn-small">Submit!</button>
+						</form>
+					</div>
 				</div>
 			</div>
 
@@ -114,7 +123,7 @@
 							<div class="col-xs-9">
 							</div>
 							<div class="col-xs-1">
-								<button id="submit-review" class="btn btn-warning ">Submit!</button>
+								<button id="submit-review" class="btn btn-warning">Submit!</button>
 							</div>
 					  </div>
 					</form>

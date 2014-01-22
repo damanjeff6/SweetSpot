@@ -12,6 +12,7 @@ SS.Routers.Router = Backbone.Router.extend({
 
 	index: function(){
 		var that = this;
+
 		var indexView = new SS.Views.RestaurantsIndex({
 			collection: that.restaurants
 		});
