@@ -18,6 +18,7 @@ SS.Views.StreetView = Backbone.View.extend({
       pov: { heading: 34, pitch: 10 }
     };
     var panorama = new  google.maps.StreetViewPanorama(this.$('#google-street')[0],panoramaOptions);
+		panorama.setVisible(true);
   },
 
 	render: function() {
@@ -25,7 +26,7 @@ SS.Views.StreetView = Backbone.View.extend({
 	    that.$el.html(that.template({
 	    }));
 
-			this.createStreet();
+			//this.createStreet();
 	    return this;
 	},
 

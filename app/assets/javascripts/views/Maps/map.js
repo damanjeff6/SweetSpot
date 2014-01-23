@@ -24,11 +24,11 @@ SS.Views.Map = Backbone.View.extend({
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
-		var map = new google.maps.Map(this.$('#google-map')[0], mapOptions);
+		this.map = new google.maps.Map(this.$('#google-map')[0], mapOptions);
 
 		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(this.lat, this.lng),
-			map: map,
+			map: this.map,
 			title: "Hello World!"
 		});
 

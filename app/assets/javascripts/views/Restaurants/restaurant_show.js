@@ -25,6 +25,17 @@ SS.Views.RestaurantShow = Backbone.View.extend({
 		var streetView = new SS.Views.StreetView();
 		that.$('#street-tab').html(streetView.render().$el);
 
+		//fix to get maps working with bootstrap tabs
+		this.$("a[href='#map-tab']").on('shown.bs.tab', function(){
+		  google.maps.event.trigger(mapView.map, 'resize');
+			var latlng = new google.maps.LatLng(this.lat, this.lng)
+			mapView.map.setCenter(latlng);
+		});
+
+		//fix to get street view working with bootstrap tabs
+		this.$("a[href='#street-tab']").on('shown.bs.tab', function(){
+			streetView.createStreet();
+		});
     return this;
   },
 
