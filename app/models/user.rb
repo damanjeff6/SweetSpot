@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password
+  attr_accessible :username, :password, :home
   attr_reader :password
 
   has_many :reviews
@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :session_token, :presence => true
   validates :username, :presence => true
+  validates :home, :presence => true
 
   after_initialize :ensure_session_token
 

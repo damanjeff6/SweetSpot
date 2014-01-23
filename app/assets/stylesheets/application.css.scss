@@ -22,11 +22,17 @@
 //borders around tabs
 .tab-content {
 		max-width: 800px;
+		min-height: 540px;
 		border-top: 1px solid #ddd;
 		border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 		border-bottom: 1px solid #ddd;
     padding: 10px;
+}
+
+.carousel-inner{
+	max-width: 800px;
+	min-height: 540px;
 }
 
 //remove line under Photo/Map tab

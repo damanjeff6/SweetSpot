@@ -20,11 +20,12 @@ class Api::RestaurantsController < ApplicationController
       render :json => @restaurant.errors.full_messages, :status => 422
     end
   end
-  #
-  # def show
-  #   @restaurant = Restaurant.find(params[:id])
-  #   render :json => @restaurant
-  # end
+
+  def show
+    @restaurant = Restaurant.includes(:address, :reviews, :pictures)
+                            .find(params[:id])
+    render :json => @restaurant.to_json(:include => [:address, :reviews, :pictures])
+  end
   #
   # def update
   #   @restaurant = Restaurant.find(params[:id])

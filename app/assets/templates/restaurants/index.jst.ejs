@@ -1,11 +1,20 @@
+<% function pad(n, width, z) {z = z || '0'; n = n + ''; %>
+<%		return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; }; %>
+
 <div class="container">
-	<h2>Browsing in San Francisco<p class="lead">Showing <%=restaurants.length%> Sweet Spots!</p></h2>
+	<h2>Browsing in <%=CURRENT_SEARCH['address']['city']%><p class="lead">Showing <%=restaurants.length%> Sweet Spots!</p></h2>
 	<div class="row">
+		<% var img_path; %>
+		<% var pictureID; %>
 		<% restaurants.each(function (restaurant) { %>
 		  <div class="col-lg-4 col-sm-6 col-xs-12 lesspadding">
 		      <a href="#restaurant/<%= restaurant.escape('id') %>">
 						<div class="thumbnail">
-							 <img src="http://placehold.it/800x600" class="img-responsive">
+							<% if( typeof restaurant.get('pictures').first() !== 'undefined' ) { %>
+								<% pictureID = restaurant.get('pictures').first(); %>
+							  <% img_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/pictures/photos/000/000/" + pad(pictureID.id, 3) + "/big/base64.txt"; %>
+								<% } else { img_path = "http://placehold.it/800x600"; } %>
+							 <img src='<%= img_path %>' alt="..." class="img-responsive">
 							 <div class="caption"><%= restaurant.escape("name") %></div>
 						</div>
 		      </a>

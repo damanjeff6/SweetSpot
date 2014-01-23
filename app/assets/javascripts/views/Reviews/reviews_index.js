@@ -4,7 +4,7 @@ SS.Views.ReviewsIndex = Backbone.View.extend({
 	tagName: 'ul',
 
 	initialize: function () {
-		this.listenTo(this.collection, 'add reset', this.render);
+		this.listenTo(this.collection, 'all', this.render);
 	},
 
   render: function () {

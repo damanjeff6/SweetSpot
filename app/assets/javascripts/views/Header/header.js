@@ -19,6 +19,7 @@ SS.Views.Header = Backbone.View.extend({
 		SS.restaurants.fetch({
 			data: searchData,
 			success: function () {
+					CURRENT_SEARCH = searchData;
 					that._navToIndex();
 			}
 		});

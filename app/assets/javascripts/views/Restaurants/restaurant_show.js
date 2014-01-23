@@ -19,6 +19,12 @@ SS.Views.RestaurantShow = Backbone.View.extend({
     that.$el.html(that.template({
       restaurant: that.model
     }));
+		var mapView = new SS.Views.Map();
+		that.$('#map-tab').html(mapView.render().$el);
+
+		var streetView = new SS.Views.StreetView();
+		that.$('#street-tab').html(streetView.render().$el);
+
     return this;
   },
 
@@ -48,9 +54,23 @@ SS.Views.RestaurantShow = Backbone.View.extend({
 			success: function () {
 				var showForm = new SS.Views.ReviewShow({ model: that.review })
 				that.$('#review-section').append(showForm.render().$el);
-				that.$('')
 			}
 		});
 	},
+
+	submitPhoto: function (event) {
+		var that = this;
+		event.preventDefault();
+		var data = $('#new_photo_form').serializeJSON();
+		this.picture.save(data, {
+			success: function () {
+				that._navToShow(that.model);
+			}
+		});
+	},
+
+  _navToShow: function (restaurant) {
+    Backbone.history.navigate("#restaurant/" + restaurant.id, {trigger: true });
+  }
 
 });

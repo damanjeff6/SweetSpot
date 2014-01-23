@@ -12,6 +12,14 @@ Body Loading...
 	var CURRENT_USER_ID = "";
 	<% end %>
 
+	if (typeof CURRENT_SEARCH === 'undefined') {
+		<% if !current_user.nil? %>
+			var CURRENT_SEARCH = {address: {city: '<%= current_user.home %>'}};
+		<% else %>
+			var CURRENT_SEARCH = {address: {city: 'San Francisco'}};
+		<% end %>
+	}
+
   var USERS = <%= User.all.to_json(:only => [:username, :id]).html_safe %>
 </script>
 

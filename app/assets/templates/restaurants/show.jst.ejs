@@ -46,17 +46,20 @@
 						     <li data-target="#carousel-photo-tab" data-slide-to="2"></li>
 						   </ol>
 
+							 <% function pad(n, width, z) {z = z || '0'; n = n + ''; %>
+							 <%		return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; } %>
+
 						   <!-- Wrapper for slides -->
 						   <div class="carousel-inner">
-						     <div class="item active">
-						       <img src="http://4.bp.blogspot.com/-LdagGkf9KTg/T1_8wYp51hI/AAAAAAAACcY/YiEnIejfKA0/s1600/Smitten_ice_cream2.JPG" alt="...">
+							 <% var setActive = true %>
+							 <% restaurant.get("pictures").each(function (picture) { %>
+								 	 <% if (setActive) {%> <div class="item active"> <% } else { %> <div class="item"> <% } %>
+									 <% var img_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/pictures/photos/000/000/" + pad(picture.get('id'), 3) + "/big/base64.txt"; %>
+							      <img src='<%= img_path %>' alt="...">
 						     </div>
-						     <div class="item">
-						       <img src="http://1.bp.blogspot.com/-staQhhouSvQ/T1_64EWDpHI/AAAAAAAACb0/rFmRcz0EDbs/s1600/Smitten_ice_cream_sizes.JPG" alt="...">
-						     </div>
-						     <div class="item">
-						       <img src="http://3.bp.blogspot.com/-asPmWHrJzjQ/TnLWwwYSRUI/AAAAAAAAHho/TcIWwvBsd4k/s1600/DSC_8140.JPG" alt="...">
-						     </div>
+								 <% setActive = false %>
+							 <% }); %>
+
 						   </div>
 
 						   <!-- Controls -->
@@ -70,20 +73,36 @@
 
 					</div>
 				  <div class="tab-pane" id="map-tab">
-						<img src="http://maps.googleapis.com/maps/api/staticmap?center=-15.800513,-47.91378&zoom=11&size=200x200&sensor=false">
 					</div>
 
 					<div class="tab-pane" id="street-tab">
-						<img src="http://maps.googleapis.com/maps/api/streetview?size=200x200&location=40.720032,-73.988354&heading=235&sensor=false">
 					</div>
 
 					<div class="tab-pane" id="photo-upload-tab">
-						<form id="new_photo_form" enctype="multipart/form-data">
+						<form class="form-horizontal" id="new_photo_form" enctype="multipart/form-data">
 								<input type="hidden" name="picture[restaurant_id]" id="picture_restaurant_id" value="<%= restaurant.get('id')%>">
-								<input type="file" name="picture[photo]">
-						    <button id="submit-photo" class="btn btn-warning btn-small">Submit!</button>
+								<div class="form-group">
+                <label for="picture_upload" class="col-sm-3 control-label">
+                    Upload</label>
+										<div class="col-sm-9">
+											<input type="file" id="picture_upload" class="form-control" name="picture[photo]" multiple accept='image/*'>
+										</div>
+								</div>
+                <div class="form-group">
+                    <label for="picture_caption" class="col-sm-3 control-label">
+                        Caption</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="picture[caption]" class="form-control" id="picture_caption" placeholder="Start caption..." required>
+                    </div>
+                </div>
+                <div class="form-group last">
+                    <div class="col-sm-offset-3 col-sm-9">
+												<button id="submit-photo" class="btn btn-warning btn-small">Submit!</button>
+                    </div>
+                </div>
 						</form>
 					</div>
+
 				</div>
 			</div>
 

@@ -30,18 +30,14 @@ ActiveRecord::Schema.define(:version => 20140122052258) do
   add_index "addresses", ["zip"], :name => "index_addresses_on_zip"
 
   create_table "pictures", :force => true do |t|
-    t.integer  "restaurant_id",               :null => false
+    t.integer  "restaurant_id",      :null => false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.string   "{:null=>false}_file_name"
-    t.string   "{:null=>false}_content_type"
-    t.integer  "{:null=>false}_file_size"
-    t.datetime "{:null=>false}_updated_at"
     t.text     "caption"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "pictures", ["restaurant_id"], :name => "index_pictures_on_restaurant_id"
@@ -73,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20140122052258) do
     t.string   "username",        :null => false
     t.string   "password_digest", :null => false
     t.string   "session_token",   :null => false
+    t.string   "home",            :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

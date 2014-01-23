@@ -20,13 +20,26 @@ SS.Routers.Router = Backbone.Router.extend({
 	},
 
 	show: function (id) {
-		var restaurant = this.restaurants.get(id);
-		var showView = new SS.Views.RestaurantShow({
-			collection: this.restaurants,
-			model: restaurant
-		});
+		var that = this;
 
-		this._swapView(showView);
+		if (typeof that.restaurants.get(id) === 'undefined'){
+			var restaurant = new SS.Models.Restaurant();
+			restaurant.set({'id':id});
+			restaurant.fetch ({
+				success: function () {
+					var showView = new SS.Views.RestaurantShow({
+						model: restaurant
+					});
+					that._swapView(showView);
+				}
+			});
+		} else {
+			var restaurant = that.restaurants.get(id);
+			var showView = new SS.Views.RestaurantShow({
+				model: restaurant
+			});
+			that._swapView(showView);
+		}
 	},
 
 	new: function () {
