@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password, :home
+  attr_accessible :username, :password, :home, :photo
   attr_reader :password
+
+  has_attached_file :photo, styles: { big: "350<>x350<>", small: "64x64!"}
 
   has_many :reviews
 

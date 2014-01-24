@@ -18,11 +18,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params.include?(:id)
       @user = User.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update_attributes(params[:user])
+      redirect_to @user
     else
-      # redirect_to "user_url(current_user)"
-      redirect_to "/"
+      render :json => @user.errors.full_messages
     end
   end
 

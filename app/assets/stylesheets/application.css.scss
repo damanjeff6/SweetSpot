@@ -88,7 +88,7 @@
 
 //sign in
 #signup-container {
-  background: url(http://www.zastavki.com/pictures/1600x1200/2009/Food_Cakes_and_Sweet_Delicious_desserts_013219_.jpg) no-repeat center center fixed;
+  background: url(http://s16.postimg.org/j0giezwp1/Food_Cakes_and_Sweet_Delicious_desserts_013219.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -97,7 +97,7 @@
 
 //create user page
 #create-user-page {
-  background: url(http://www.zastavki.com/pictures/1600x1200/2009/Food_Cakes_and_Sweet_Ice_Cream_Dessert_013218_.jpg) no-repeat center center fixed;
+  background: url(http://s11.postimg.org/cip72f4sj/Food_Cakes_and_Sweet_Ice_Cream_Dessert_013218.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -106,7 +106,16 @@
 
 //create user page
 #new-location-page {
-  background: url(http://images7.alphacoders.com/334/334678.jpg) no-repeat center center fixed;
+  background: url(http://s22.postimg.org/l28horo4x/334678.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+//show user page
+#show-container {
+  background: url(http://s22.postimg.org/l28horo4x/334678.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -122,4 +131,19 @@ margin-top:30px;
 //style stars
 .red, .red a {
   color: #C11B17;
+}
+
+//circle user image
+.dp
+{
+    border:10px solid #eee;
+    transition: all 0.2s ease-in-out;
+}
+.dp:hover
+{
+    border:2px solid #eee;
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg);
+    -webkit-transform:rotate(360deg);
+    /*-webkit-font-smoothing:antialiased;*/
 }

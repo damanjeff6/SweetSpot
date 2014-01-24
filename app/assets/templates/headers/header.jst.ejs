@@ -29,8 +29,11 @@
 	        </div>
         </form>
     </div>
+		<a class="pull-right" href="/users/<%=CURRENT_USER_ID%>">
+       <img class="media-object dp img-circle" src="http://s30.postimg.org/6bcndtozx/user_anonymous.png" style="width: 64px;height:64px;">
+		</a>
 		<form class="navbar-form navbar-right">
-			<a class="btn btn-warning" href="#restaurants/new">List New Location</a>
+			<a class="btn btn-warning" href="#restaurants/new">List New</a>
     </form>
 		<form class="navbar-form navbar-right">
 			<% if (typeof CURRENT_USER_ID !== 'undefined' && CURRENT_USER_ID !== "") { %>
