@@ -21,6 +21,7 @@ Body Loading...
 	}
 
   var USERS = <%= User.all.to_json(:only => [:username, :id]).html_safe %>
+	var CITIES = <%= Address.uniq.pluck(:city).to_json.html_safe  %>
 </script>
 
 

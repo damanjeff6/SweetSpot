@@ -18,11 +18,23 @@ SS.Views.RestaurantNew = Backbone.View.extend({
 		var that = this;
 		event.preventDefault();
 		var data = $('#rest-form').serializeJSON();
+		var address = data['restaurant']['address_attributes']
 
-    this.collection.create(data['restaurant'], {
-			success: function(restaurantData){
-				that._navToShow(restaurantData);
-			}
+		//todo: addressible URI
+		var address_string = address['line1'] + ' ' + address['line2'] + ', ' + address['city'] + ', ' + address['state'] + ' ' + address['zip']
+		console.log(address_string);
+		$.ajax({
+		  url:"http://maps.googleapis.com/maps/api/geocode/json?address="+address_string+"&sensor=false",
+		  type: "POST",
+		  success:function(res){
+		     data.restaurant.address_attributes.lat = res.results[0].geometry.location.lat;
+		     data.restaurant.address_attributes.lng = res.results[0].geometry.location.lng;
+		 		 that.collection.create(data['restaurant'], {
+		 				success: function(restaurantData){
+		 					that._navToShow(restaurantData);
+		 		  	}
+		 		 });
+		  }
 		});
 	},
 

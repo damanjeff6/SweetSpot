@@ -29,14 +29,18 @@
                         </div>
                     </div>
                     <div class="form-group last">
-                        <div class="col-sm-offset-3 col-sm-9">
-                            <button type="submit" class="btn btn-success btn-sm">
-                                Sign in</button>
-                                 <button type="reset" class="btn btn-default btn-sm">
-                                Reset</button>
-                        </div>
+                        <div class="col-sm-offset-2 col-sm-7">
+                            <button type="submit" class="btn btn-success btn-sm">Sign in</button>
+                            <button type="reset" class="btn btn-default btn-sm">Reset</button>
+												</div>
+										</form>
+													<form action="<%= session_url %>" method="post" class="form-horizontal">
+														<button type="submit" class="btn btn-primary btn-sm">GUEST</button>
+														<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+														<input type="hidden" name="user[username]" value="guest">
+														<input type="hidden" name="user[password]" value="password">
+													</form>
                     </div>
-                    </form>
                 </div>
                 <div class="panel-footer">
                     Not Signed Up? <a href="/users/new">Register here</a></div>

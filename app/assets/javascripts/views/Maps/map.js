@@ -3,8 +3,8 @@ SS.Views.Map = Backbone.View.extend({
   template: JST['maps/map'],
 
 	initialize: function() {
-		this.lat = -34.397;
-		this.lng = 150.644;
+		this.lat = this.model.get('address').get('lat');
+		this.lng = this.model.get('address').get('lng');
 	},
 
 	render: function() {
@@ -18,20 +18,28 @@ SS.Views.Map = Backbone.View.extend({
 	},
 
   createMap: function(){
+		var that = this;
 		var mapOptions = {
-		  center: new google.maps.LatLng(this.lat, this.lng),
-		  zoom: 8,
+		  center: new google.maps.LatLng(that.lat, that.lng),
+		  zoom: 13,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
 
 		this.map = new google.maps.Map(this.$('#google-map')[0], mapOptions);
 
 		var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(this.lat, this.lng),
+			position: new google.maps.LatLng(that.lat, that.lng),
 			map: this.map,
 			title: "Hello World!"
 		});
 
+		var info = new google.maps.InfoWindow();
+    google.maps.event.addListener(marker, "click", (function(marker) {
+      return function(){
+        info.setContent(that.model.get('name'));
+        info.open(that.map, marker);
+      }
+    })(marker));
   }
 
 });

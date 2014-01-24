@@ -13,6 +13,8 @@ window.SS = {
 
 		SS.restaurants = new SS.Collections.Restaurants();
 
+		if (typeof CURRENT_SEARCH !== "undefined"){
+
 		SS.restaurants.fetch({
 			data: CURRENT_SEARCH,
 			success: function () {
@@ -20,6 +22,8 @@ window.SS = {
 				Backbone.history.start();
 			}
 		});
+
+		};
   }
 };
 

@@ -28,7 +28,8 @@ SS.Routers.Router = Backbone.Router.extend({
 			restaurant.fetch ({
 				success: function () {
 					var showView = new SS.Views.RestaurantShow({
-						model: restaurant
+						model: restaurant,
+						collection: that.restaurants
 					});
 					that._swapView(showView);
 				}
@@ -44,6 +45,7 @@ SS.Routers.Router = Backbone.Router.extend({
 
 	new: function () {
 		var newView = new SS.Views.RestaurantNew({
+			model: new SS.Models.Restaurant(),
 			collection: this.restaurants
 		});
 

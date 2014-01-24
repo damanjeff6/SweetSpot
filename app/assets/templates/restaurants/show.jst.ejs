@@ -1,3 +1,5 @@
+<a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <div class="container">
 
 	<div class="row">
@@ -11,9 +13,10 @@
 				<%   ratings_sum += review.get("rating"); %>
 				<% }); %>
 				<% if (ratings_sum === 0) {ratings_avg = 'NA';} else { ratings_avg = ratings_sum / restaurant.get("reviews").length; } %>
-
 				<h1><%=restaurant.get('name')%></h1>
-				<h4><span class="label label-danger"><%= ratings_avg %></span> <%=restaurant.get("reviews").length%> Reviews</h4>
+				<% if (restaurant.get("reviews").length !== 0) { %>
+					<h4><span class="label label-danger"><%= ratings_avg %> Star</span> <%=restaurant.get("reviews").length%> Reviews</h4>
+			  <% } %>
 				<%= restaurant.get("address").get('line1') %>
 				<%= restaurant.get("address").get('line2') %>,
 				<%= restaurant.get("address").get('city') %>,
@@ -82,16 +85,19 @@
 						<form class="form-horizontal" id="new_photo_form" enctype="multipart/form-data">
 								<input type="hidden" name="picture[restaurant_id]" id="picture_restaurant_id" value="<%= restaurant.get('id')%>">
 								<div class="form-group">
-                <label for="picture_upload" class="col-sm-3 control-label">
+											<div>&nbsp;</div>
+											<div>&nbsp;</div>
+											<div>&nbsp;</div>
+                <label for="picture_upload" class="col-sm-2 control-label">
                     Upload</label>
-										<div class="col-sm-9">
+										<div class="col-sm-8">
 											<input type="file" id="picture_upload" class="form-control" name="picture[photo]" multiple accept='image/*'>
 										</div>
 								</div>
                 <div class="form-group">
-                    <label for="picture_caption" class="col-sm-3 control-label">
+                    <label for="picture_caption" class="col-sm-2 control-label">
                         Caption</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <input type="text" name="picture[caption]" class="form-control" id="picture_caption" placeholder="Start caption..." required>
                     </div>
                 </div>

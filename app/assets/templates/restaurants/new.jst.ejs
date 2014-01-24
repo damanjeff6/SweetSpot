@@ -11,58 +11,60 @@
                         <label for="restaurant_name" class="col-sm-3 control-label">
                             Name</label>
                         <div class="col-sm-9">
-                            <input type="txt" class="form-control" id="restaurant_name" name="restaurant[name]" placeholder="E.g Awesome Desset Shop" required>
+                            <input type="txt" class="form-control" id="restaurant_name" name="restaurant[name]" placeholder="E.g Awesome Desset Shop" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_line1" class="col-sm-3 control-label">
                             Address 1</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[address_attributes][line1]" class="form-control" id="restaurant_line1" placeholder="E.g. 333 Grant Ave" required>
+                            <input type="text" name="restaurant[address_attributes][line1]" class="form-control" id="restaurant_line1" placeholder="E.g. 333 Grant Ave" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_line2" class="col-sm-3 control-label">
                             Address 2</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[address_attributes][line2]" class="form-control" id="restaurant_line2" placeholder="E.g. Apt 33" required>
+                            <input type="text" name="restaurant[address_attributes][line2]" class="form-control" id="restaurant_line2" placeholder="E.g. Apt 33" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_city" class="col-sm-3 control-label">
                             City</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[address_attributes][city]" class="form-control" id="restaurant_city" placeholder="E.g. San Francisco" required>
+                            <input type="text" name="restaurant[address_attributes][city]" class="form-control" id="restaurant_city" placeholder="E.g. San Francisco" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_state" class="col-sm-3 control-label">
                             State</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[address_attributes][state]" class="form-control" id="restaurant_state" placeholder="E.g. CA" required>
+                            <input type="text" name="restaurant[address_attributes][state]" class="form-control" id="restaurant_state" placeholder="E.g. CA" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_zip" class="col-sm-3 control-label">
                             Zip</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[address_attributes][zip]" class="form-control" id="restaurant_zip" placeholder="E.g. 94108" required>
+                            <input type="text" name="restaurant[address_attributes][zip]" class="form-control" id="restaurant_zip" placeholder="E.g. 94108" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_phone" class="col-sm-3 control-label">
                             Phone</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[phone]" class="form-control" id="restaurant_phone" placeholder="E.g. (555)677-9108" required>
+                            <input type="text" name="restaurant[phone]" class="form-control" id="restaurant_phone" placeholder="E.g. (555)677-9108" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="restaurant_url" class="col-sm-3 control-label">
                             URL</label>
                         <div class="col-sm-9">
-                            <input type="text" name="restaurant[url]" class="form-control" id="restaurant_url" placeholder="E.g. www.yelp.com" required>
+                            <input type="text" name="restaurant[url]" class="form-control" id="restaurant_url" placeholder="E.g. www.yelp.com" >
                         </div>
                     </div>
+                    <input type="hidden" name="restaurant[address_attributes][lat]" id='lat' value="0.0">
+										<input type="hidden" name="restaurant[address_attributes][lng]" id='lng' value="0.0">
                     <div class="form-group last">
                         <div class="col-sm-offset-3 col-sm-9">
 														<button id="submit-new" class="btn btn-warning btn-sm">Submit!</button>

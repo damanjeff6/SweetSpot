@@ -11,6 +11,7 @@ SS.Views.RestaurantsIndex = Backbone.View.extend({
     that.$el.html(that.template({
       restaurants: that.collection
     }));
+
     return this;
   }
 

@@ -8,6 +8,7 @@ class Api::PicturesController < ApplicationController
   def create
     @picture = Picture.new(params[:picture])
     @picture.photo = params[:photo]
+
     if @picture.save
       render :json => @picture
     else

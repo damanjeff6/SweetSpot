@@ -14,8 +14,9 @@ class Api::RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(params[:restaurant])
+
     if @restaurant.save
-      render :json => @restaurant
+      render :json => @restaurant.to_json(:include => [:address, :reviews, :pictures])
     else
       render :json => @restaurant.errors.full_messages, :status => 422
     end

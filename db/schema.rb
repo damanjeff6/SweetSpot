@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20140122052258) do
     t.string   "city",          :null => false
     t.string   "state",         :null => false
     t.string   "zip",           :null => false
+    t.string   "lat",           :null => false
+    t.string   "lng",           :null => false
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

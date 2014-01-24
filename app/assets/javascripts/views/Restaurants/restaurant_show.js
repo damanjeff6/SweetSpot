@@ -5,7 +5,11 @@ SS.Views.RestaurantShow = Backbone.View.extend({
   initialize: function () {
 		this.review = new SS.Models.Review();
 		this.picture = new SS.Models.Picture();
-    this.listenTo(this.review, 'save', this.render);
+		this.lat = this.model.get('address').get('lat');
+		this.lng = this.model.get('address').get('lng');
+		this.listenTo(this.review, 'all', this.render);
+		this.listenTo(this.model.get('reviews'), 'all', this.render);
+		this.listenTo(this.model.get('pictures'), 'all', this.render);
   },
 
 	events: {
@@ -19,16 +23,20 @@ SS.Views.RestaurantShow = Backbone.View.extend({
     that.$el.html(that.template({
       restaurant: that.model
     }));
-		var mapView = new SS.Views.Map();
+		var mapView = new SS.Views.Map({
+			model: that.model
+		});
 		that.$('#map-tab').html(mapView.render().$el);
 
-		var streetView = new SS.Views.StreetView();
+		var streetView = new SS.Views.StreetView({
+			model: that.model
+		});
 		that.$('#street-tab').html(streetView.render().$el);
 
 		//fix to get maps working with bootstrap tabs
 		this.$("a[href='#map-tab']").on('shown.bs.tab', function(){
 		  google.maps.event.trigger(mapView.map, 'resize');
-			var latlng = new google.maps.LatLng(this.lat, this.lng)
+			var latlng = new google.maps.LatLng(that.lat, that.lng)
 			mapView.map.setCenter(latlng);
 		});
 
@@ -36,6 +44,7 @@ SS.Views.RestaurantShow = Backbone.View.extend({
 		this.$("a[href='#street-tab']").on('shown.bs.tab', function(){
 			streetView.createStreet();
 		});
+
     return this;
   },
 
@@ -65,17 +74,23 @@ SS.Views.RestaurantShow = Backbone.View.extend({
 			success: function () {
 				var showForm = new SS.Views.ReviewShow({ model: that.review })
 				that.$('#review-section').append(showForm.render().$el);
+				that.model.get('reviews').add(that.review);
 			}
 		});
 	},
 
 	submitPhoto: function (event) {
+
+		//uploading ...
+
 		var that = this;
 		event.preventDefault();
 		var data = $('#new_photo_form').serializeJSON();
 		this.picture.save(data, {
 			success: function () {
 				that._navToShow(that.model);
+				that.model.get('pictures').add(that.picture);
+				// popup success
 			}
 		});
 	},

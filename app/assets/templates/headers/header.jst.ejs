@@ -16,8 +16,14 @@
     <div class="col-sm-5 col-md-5">
         <form class="navbar-form navbar-left" role="search" id="search-form">
 	        <div class="input-group">
-	            <input type="text" class="form-control" placeholder="Location E.g. San Francisco" name="address[city]">
-	            <div class="input-group-btn">
+	            <input list="cities" class="form-control" placeholder="Location E.g. San Francisco" name="address[city]">
+								<datalist id="cities">
+								<% if (typeof CITIES !== "undefined") { %>
+								<% for(var i=0; i < CITIES.length; i++) { %>
+									<option value="<%= CITIES[i] %>">
+								<% }; }%>
+								</datalist>
+							<div class="input-group-btn">
 	                <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
 	            </div>
 	        </div>

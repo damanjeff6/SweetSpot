@@ -6,19 +6,36 @@
 	<div class="row">
 		<% var img_path; %>
 		<% var pictureID; %>
+		<% var ratings_sum = 0; %>
+		<% var ratings_avg; %>
 		<% restaurants.each(function (restaurant) { %>
+
+			<% restaurant.get("reviews").each(function (review) { %>
+			<%   ratings_sum += review.get("rating"); %>
+			<% }); %>
+			<% if (ratings_sum === 0 || restaurant.get("reviews").length === 0) {ratings_avg = 0;} else { ratings_avg = ratings_sum / restaurant.get("reviews").length; } %>
+			<% ratings_sum = 0 %>
 		  <div class="col-lg-4 col-sm-6 col-xs-12 lesspadding" id="restaurant-list-pic">
 		      <a href="#restaurant/<%= restaurant.escape('id') %>">
 						<div class="thumbnail">
 							<% if( typeof restaurant.get('pictures').first() !== 'undefined' ) { %>
 								<% pictureID = restaurant.get('pictures').first(); %>
 							  <% img_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/pictures/photos/000/000/" + pad(pictureID.id, 3) + "/small/base64.txt"; %>
-								<% } else { img_path = "http://placehold.it/800x600"; } %>
+								<% } else { img_path = "http://s9.postimg.org/x4vfzb26n/placehold.gif"; } %>
 							 <img src='<%= img_path %>' alt="..." class="img-responsive">
-							 <div class="caption">
-							 		<%= restaurant.escape("name") %>
-							 	 	Rating:
-							 </div>
+							 		<div class="caption col-sm-6 text-left">
+										<strong><%= restaurant.escape("name") %></strong>
+									</div>
+									<div class="caption col-sm-6 text-right ">
+									<% var j=1; while( j <= 5 ){ %>
+									<% 			if (ratings_avg + 0.5 >= j) { %>
+													<i class='glyphicon glyphicon-star red'></i>
+									<% 			} else { %>
+													<i class='glyphicon glyphicon-star-empty red'></i>
+									<% 			}  %>
+									<% 			j++; }; %>
+									<small><%= restaurant.get('reviews').length %> reviews</small>
+									</div>
 						</div>
 		      </a>
 		  </div>
