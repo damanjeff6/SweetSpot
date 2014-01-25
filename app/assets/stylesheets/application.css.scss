@@ -115,7 +115,7 @@
 
 //show user page
 #show-container {
-  background: url(http://s22.postimg.org/l28horo4x/334678.jpg) no-repeat center center fixed;
+  background: url(http://s14.postimg.org/isxa9xznl/Food_Cakes_and_loaf_A_cake_with_ice_cream_011857.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -146,4 +146,27 @@ margin-top:30px;
     -ms-transform:rotate(360deg);
     -webkit-transform:rotate(360deg);
     /*-webkit-font-smoothing:antialiased;*/
+}
+
+//loading spinner
+.modal-static {
+    position: fixed;
+    top: 50% !important;
+    left: 50% !important;
+    margin-top: -100px;
+    margin-left: -100px;
+    overflow: visible !important;
+}
+.modal-static,
+.modal-static .modal-dialog,
+.modal-static .modal-content {
+    width: 200px;
+    height: 200px;
+}
+.modal-static .modal-dialog,
+.modal-static .modal-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.modal-static .modal-content .icon {
 }

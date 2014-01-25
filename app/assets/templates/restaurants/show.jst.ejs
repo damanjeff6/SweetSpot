@@ -1,5 +1,9 @@
 <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<% function pad(n, width, z) {z = z || '0'; n = n + ''; %>
+<%		return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; } %>
+
 <div class="container">
 
 	<div class="row">
@@ -48,9 +52,6 @@
 						     <li data-target="#carousel-photo-tab" data-slide-to="1"></li>
 						     <li data-target="#carousel-photo-tab" data-slide-to="2"></li>
 						   </ol>
-
-							 <% function pad(n, width, z) {z = z || '0'; n = n + ''; %>
-							 <%		return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n; } %>
 
 						   <!-- Wrapper for slides -->
 						   <div class="carousel-inner">
@@ -158,32 +159,32 @@
 			<% } %>
 
 			<div class="row">
-
 				<div class="well well-sm well-size">
-
-				<ul class="media-list" id="review-section">
-					<% var user %>
-					<% var date %>
-					<% restaurant.get("reviews").each(function (review) { %>
-						<% user = _.find(USERS, function(obj) {return obj.id == review.escape('user_id')}) %>
-						<% date = new Date(review.escape('updated_at')) %>
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<li class="media">
-									<div class="pull-left">
-						      	<img class="media-object" src="http://s30.postimg.org/6bcndtozx/user_anonymous.png" alt="...">
-						    	</div>
-									<div class="media-body">
-										<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
-									 	<p><%= review.escape('body') %><br>
-										<strong>Rating: <%= review.escape('rating') %></strong></p>
-								  </div>
-								</li>
+					<% if (restaurant.get("reviews").length === 0) { %> <h2 class="text-center">No Reviews Yet! You Can Be The First!</h2> <% } else { %>
+					<ul class="media-list" id="review-section">
+						<% var user %>
+						<% var date %>
+						<% restaurant.get("reviews").each(function (review) { %>
+							<% user = _.find(USERS, function(obj) {return obj.id == review.escape('user_id')}) %>
+							<% date = new Date(review.escape('updated_at')) %>
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<li class="media">
+										<div class="pull-left">
+										<% var thumbnail_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/users/photos/000/000/" + pad(user['id'], 3) + "/small/" + user['photo_file_name']; %>
+											<img class="media-object" src='<%=thumbnail_path%>' alt="http://s30.postimg.org/6bcndtozx/user_anonymous.png">
+							    	</div>
+										<div class="media-body">
+											<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
+										 	<p><%= review.escape('body') %><br>
+											<strong>Rating: <%= review.escape('rating') %></strong></p>
+									  </div>
+									</li>
+								</div>
 							</div>
-						</div>
-					<% }); %>
-				</ul>
-
+						<% }); %>
+					</ul>
+				<% } %>
 				</div>
 			</div>
 

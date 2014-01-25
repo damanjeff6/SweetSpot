@@ -8,8 +8,10 @@ Body Loading...
 <script>
 	<% if !current_user.nil? %>
 	var CURRENT_USER_ID = <%= current_user.id %>;
+	var CURRENT_USER_PHOTO = "<%= current_user.photo.url(:small) %>";
 	<% else %>
 	var CURRENT_USER_ID = "";
+	var CURRENT_USER_PHOTO = "";
 	<% end %>
 
 	if (typeof CURRENT_SEARCH === 'undefined') {
@@ -20,7 +22,7 @@ Body Loading...
 		<% end %>
 	}
 
-  var USERS = <%= User.all.to_json(:only => [:username, :id]).html_safe %>
+  var USERS = <%= User.all.to_json(:only => [:username, :id, :photo_file_name]).html_safe %>
 	var CITIES = <%= Address.uniq.pluck(:city).to_json.html_safe  %>
 </script>
 
