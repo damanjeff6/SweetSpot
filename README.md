@@ -6,21 +6,21 @@ Restaurants can be searched by city given reviews and ratings. New restaurant li
 
 The following technologies were used to build SweetSpot:
 
-AJAX
-Backbone.js
-Bootstrap
-CSS
-Figaro
-Geocoder
-Heroku 
-HTML5 
-JavaScript 
-JQuery
-Pingdom 
-Postgresql 
-RESTful Api 
-Ruby on Rails 
-SQL 
-Google Maps API (Maps+Street View)
+-AJAX
+-Backbone.js
+-Bootstrap
+-CSS
+-Figaro
+-Geocoder
+-Heroku 
+-HTML5 
+-JavaScript 
+-JQuery
+-Pingdom 
+-Postgresql 
+-RESTful Api 
+-Ruby on Rails 
+-SQL 
+-Google Maps API (Maps+Street View)
 
 Please feel free to send me an email at jeffrey.chen310@gmail.com with any comments or suggestions.
