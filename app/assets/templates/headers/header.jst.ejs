@@ -31,11 +31,11 @@
     <div class="col-sm-4 col-md-3">
         <form class="navbar-form navbar-left" role="search" id="search-form">
 	        <div class="input-group">
-	            <input list="cities" class="form-control" placeholder="Location E.g. San Francisco" name="address[city]">
+	            <input list="cities" class="form-control" placeholder="Search By Name..." name="name">
 								<datalist id="cities">
-								<% if (typeof CITIES !== "undefined") { %>
-								<% for(var i=0; i < CITIES.length; i++) { %>
-									<option value="<%= CITIES[i] %>">
+								<% if (typeof NAMES !== "undefined") { %>
+								<% for(var i=0; i < NAMES.length && i < 10; i++) { %>
+									<option value="<%= NAMES[i] %>">
 								<% }; }%>
 								</datalist>
 							<div class="input-group-btn">

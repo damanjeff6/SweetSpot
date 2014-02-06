@@ -1,10 +1,11 @@
 class Api::RestaurantsController < ApplicationController
 
   def index
-    if params[:address]
+    if params[:name]
       @restaurants = Restaurant.joins(:address)
                                .includes(:address, :reviews, :pictures, :category)
-                               .where("Addresses.city = ?", params[:address][:city])
+                               .where("Restaurants.name LIKE ?", "%#{params[:name]}%")
+                               # .where("Addresses.city = ?", params[:address][:city])
     else
       @restaurants = Restaurant.includes(:address, :reviews, :pictures, :category)
     end
