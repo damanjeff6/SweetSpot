@@ -1,7 +1,7 @@
 <div class="container" id="new-location-page">
 		<div class="row">&nbsp;</div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-6">
+        <div class="col-md-7 col-md-offset-5">
             <div class="panel panel-default">
                 <div class="panel-heading ">
                     List a New Location</div>
@@ -62,6 +62,35 @@
                         <div class="col-sm-9">
                             <input type="text" name="restaurant[url]" class="form-control" id="restaurant_url" placeholder="E.g. www.yelp.com" >
                         </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-sm-3 control-label">Categories</label>
+											<div class="col-sm-9">
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox1" name="restaurant[category_attributes][cake]" value="true">Cake/Pie
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox2" name="restaurant[category_attributes][cookies]" value="true">Cookies
+													</label>			
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox3" name="restaurant[category_attributes][crepes]" value="true">Crepes
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox4" name="restaurant[category_attributes][cupcakes]" value="true">Cupcakes
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox5" name="restaurant[category_attributes][yogurt]" value="true">Frozen Yogurt
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox6" name="restaurant[category_attributes][fruit]" value="true">Fruit
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox7" name="restaurant[category_attributes][icecream]" value="true">Ice Cream
+													</label>
+													<label class="checkbox-inline">
+													  <input type="checkbox" id="checkbox8" name="restaurant[category_attributes][tea]" value="true">Tea/Coffee
+													</label>
+										  </div>
                     </div>
                     <input type="hidden" name="restaurant[address_attributes][lat]" id='lat' value="0.0">
 										<input type="hidden" name="restaurant[address_attributes][lng]" id='lng' value="0.0">
