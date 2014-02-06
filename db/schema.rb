@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140122052258) do
+ActiveRecord::Schema.define(:version => 20140205195753) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "restaurant_id", :null => false
@@ -30,6 +30,22 @@ ActiveRecord::Schema.define(:version => 20140122052258) do
   add_index "addresses", ["restaurant_id"], :name => "index_addresses_on_restaurant_id", :unique => true
   add_index "addresses", ["state"], :name => "index_addresses_on_state"
   add_index "addresses", ["zip"], :name => "index_addresses_on_zip"
+
+  create_table "categories", :force => true do |t|
+    t.integer  "restaurant_id",                    :null => false
+    t.boolean  "cake",          :default => false
+    t.boolean  "cookies",       :default => false
+    t.boolean  "crepes",        :default => false
+    t.boolean  "cupcakes",      :default => false
+    t.boolean  "yogurt",        :default => false
+    t.boolean  "fruit",         :default => false
+    t.boolean  "icecream",      :default => false
+    t.boolean  "tea",           :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  add_index "categories", ["restaurant_id"], :name => "index_categories_on_restaurant_id"
 
   create_table "pictures", :force => true do |t|
     t.integer  "restaurant_id",      :null => false

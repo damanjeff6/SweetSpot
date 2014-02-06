@@ -13,7 +13,22 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="col-sm-5 col-md-5">
+    <div class="btn-group">
+        <button type="button" class="btn btn-warning dropdown-toggle navbar-btn" data-toggle="dropdown">
+            Dessert Type <span class="caret"></span>
+        </button>
+         <ul class="dropdown-menu" role="menu">
+            <li><a href="#category/cake"><img src="/assets/glyphicons_272_cake.png" height="18" width="18"> Cake/Pie</a></li>
+            <li><a href="#category/cookies"><img src="/assets/cookie.png" height="18" width="18"> Cookies</a></li>
+            <li><a href="#category/crepes"><img src="/assets/crepe.png" height="18" width="18"> Crepes</a></li>
+            <li><a href="#category/cupcakes"><img src="/assets/cupcake.png" height="18" width="18"> Cupcakes</a></li>
+            <li><a href="#category/yogurt"><img src="/assets/yogurt.png" height="18" width="18"> Frozen Yogurt</a></li>
+            <li><a href="#category/fruit"><img src="/assets/grapes.png" height="18" width="18"> Fruit</a></li>
+            <li><a href="#category/icecream"><img src="/assets/icecream.png" height="18" width="18"> Ice Cream</a></li>
+            <li><a href="#category/tea"><i class="fa fa-coffee fa-lg"></i> Tea/Coffee</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-4 col-md-3">
         <form class="navbar-form navbar-left" role="search" id="search-form">
 	        <div class="input-group">
 	            <input list="cities" class="form-control" placeholder="Location E.g. San Francisco" name="address[city]">

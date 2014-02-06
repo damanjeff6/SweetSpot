@@ -1,6 +1,6 @@
 class Api::CategoriesController < ApplicationController
   
-  def index
+  def show
     restaurant = Restaurant.find(params[:restaurant_id])
     render :json => restaurant.category
   end
@@ -13,5 +13,6 @@ class Api::CategoriesController < ApplicationController
       render :json => @category.errors.full_messages, :status => 422
     end
   end
+  
 end
 

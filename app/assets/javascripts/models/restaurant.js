@@ -11,7 +11,7 @@ SS.Models.Restaurant = Backbone.Model.extend({
 		var pictures = data.pictures;
 		data.pictures = new SS.Collections.Pictures(pictures, {parse: true});
 		
-		var category = data.categories;
+		var category = data.category;
 		data.category = new SS.Models.Category(category, {parse: true});
 		return data;
 	},

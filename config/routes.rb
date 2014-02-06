@@ -6,7 +6,7 @@ SweetSpot::Application.routes.draw do
       resource :address
       resources :reviews
       resources :pictures
-      resources :category
+      resource :category
     end
   end
   root :to => "root#root"
