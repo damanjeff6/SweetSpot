@@ -7,6 +7,9 @@ SS.Collections.Restaurants = Backbone.Collection.extend({
       return restaurant.get("category").get(type);
     });
     return new SS.Collections.Restaurants(filtered);
-  }
+  },
   
+  comparator: function(restaurant) {
+    return restaurant.get('name');
+  }
 })
