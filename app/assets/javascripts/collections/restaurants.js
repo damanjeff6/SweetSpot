@@ -20,10 +20,6 @@ SS.Collections.Restaurants = Backbone.Collection.extend({
     var a = a.get('reviews');
     var b = b.get('reviews');
     
-    if (this.sortAttribute === "vote"){
-      return a.get('reviews').length < b.get('reviews').length ? 1 : -1;
-    }
-    
     var sum1 = 0;
     a.forEach(function(restaurant1) {
       sum1 += restaurant1.get('rating');

@@ -13,6 +13,6 @@ SS.Views.RestaurantsIndex = Backbone.View.extend({
     }));
 
     return this;
-  }
+  },
 
 });

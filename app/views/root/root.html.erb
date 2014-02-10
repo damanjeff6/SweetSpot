@@ -23,7 +23,7 @@ Body Loading...
 	}
 
   var USERS = <%= User.all.to_json(:only => [:username, :id, :photo_file_name]).html_safe %>
-	var NAMES = <%= Restaurant.uniq.pluck(:name).to_json.html_safe  %>
+	var NAMES = <%= Restaurant.uniq.pluck(:name).sort.to_json.html_safe  %>
 </script>
 
 

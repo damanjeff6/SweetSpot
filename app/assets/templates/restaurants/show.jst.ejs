@@ -19,7 +19,7 @@
 				<% if (ratings_sum === 0) {ratings_avg = 'NA';} else { ratings_avg = ratings_sum / restaurant.get("reviews").length; } %>
 				<h1><%=restaurant.escape('name')%></h1>
 				<% if (restaurant.get("reviews").length !== 0) { %>
-					<h4><span class="label label-danger"><%= ratings_avg %> Star</span> <%=restaurant.escape("reviews").length%> Reviews</h4>
+					<h4><span class="label label-danger"><%= ratings_avg %> Star</span> <%=restaurant.get("reviews").length%> Reviews</h4>
 			  <% } %>
 				<%= restaurant.get("address").escape('line1') %>
 				<%= restaurant.get("address").escape('line2') %>,
@@ -27,7 +27,7 @@
 				<%= restaurant.get("address").escape('state') %>
 				<%= restaurant.get("address").escape('zip') %>,
 				<span class="glyphicon glyphicon-earphone"></span> <%= restaurant.escape('phone') %>,
-				<a href='<%= restaurant.escape('url') %>'><%= restaurant.escape('url') %></a>
+				<%= restaurant.escape('url') %>
 			</div>
 
 			<div class="row">&nbsp;</div>
@@ -177,8 +177,17 @@
 							    	</div>
 										<div class="media-body">
 											<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
-										 	<p><%= review.escape('body') %><br>
-											<strong>Rating: <%= review.escape('rating') %></strong></p>
+                      <% var reviewText = review.escape('body').replace(/\n/g,"<br />");%>
+										 	<p><%= reviewText %><br>
+											<strong>Rating: </strong>
+    									<% var k=1; while( k <= 5 ){ %>
+    									<% 			if (review.escape('rating') >= k) { %>
+    													<i class='glyphicon glyphicon-star red'></i>
+    									<% 			} else { %>
+    													<i class='glyphicon glyphicon-star-empty red'></i>
+    									<% 			}  %>
+    									<% 			k++; }; %>
+                      </p>
 									  </div>
 									</li>
 								</div>

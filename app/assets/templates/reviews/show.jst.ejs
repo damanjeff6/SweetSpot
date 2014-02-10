@@ -11,7 +11,15 @@
 					<div class="media-body">
 						<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
 					 	<p><%= review.escape('body') %><br>
-						<strong>Rating: <%= review.escape('rating') %></strong></p>
+						<strong>Rating: </strong>
+						<% var k=1; while( k <= 5 ){ %>
+						<% 			if (review.escape('rating') >= k) { %>
+										<i class='glyphicon glyphicon-star red'></i>
+						<% 			} else { %>
+										<i class='glyphicon glyphicon-star-empty red'></i>
+						<% 			}  %>
+						<% 			k++; }; %>
+            </p>
 				  </div>
 				</li>
 				</div>
