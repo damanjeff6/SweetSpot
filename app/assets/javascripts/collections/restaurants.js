@@ -9,7 +9,35 @@ SS.Collections.Restaurants = Backbone.Collection.extend({
     return new SS.Collections.Restaurants(filtered);
   },
   
-  comparator: function(restaurant) {
-    return restaurant.get('name');
+  sortAttribute: "rating",
+  
+  sortRestaurants: function (attr) {
+     this.sortAttribute = attr;
+     this.sort();
+  },
+  
+  comparator: function(a, b) { 
+    var a = a.get('reviews');
+    var b = b.get('reviews');
+    
+    if (this.sortAttribute === "vote"){
+      return a.get('reviews').length < b.get('reviews').length ? 1 : -1;
+    }
+    
+    var sum1 = 0;
+    a.forEach(function(restaurant1) {
+      sum1 += restaurant1.get('rating');
+    });
+    var avg1 = sum1 / a.length;
+    
+    var sum2 = 0;
+    b.forEach(function(restaurant2) {
+      sum2 += restaurant2.get('rating');
+    });
+    var avg2 = sum2 / b.length;
+        
+    if (avg1 == avg2){ return 0 }
+    
+    return avg1 < avg2 ? 1 : -1;
   }
 })

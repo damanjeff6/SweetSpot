@@ -17,17 +17,17 @@
 				<%   ratings_sum += review.get("rating"); %>
 				<% }); %>
 				<% if (ratings_sum === 0) {ratings_avg = 'NA';} else { ratings_avg = ratings_sum / restaurant.get("reviews").length; } %>
-				<h1><%=restaurant.get('name')%></h1>
+				<h1><%=restaurant.escape('name')%></h1>
 				<% if (restaurant.get("reviews").length !== 0) { %>
-					<h4><span class="label label-danger"><%= ratings_avg %> Star</span> <%=restaurant.get("reviews").length%> Reviews</h4>
+					<h4><span class="label label-danger"><%= ratings_avg %> Star</span> <%=restaurant.escape("reviews").length%> Reviews</h4>
 			  <% } %>
-				<%= restaurant.get("address").get('line1') %>
-				<%= restaurant.get("address").get('line2') %>,
-				<%= restaurant.get("address").get('city') %>,
-				<%= restaurant.get("address").get('state') %>
-				<%= restaurant.get("address").get('zip') %>,
+				<%= restaurant.get("address").escape('line1') %>
+				<%= restaurant.get("address").escape('line2') %>,
+				<%= restaurant.get("address").escape('city') %>,
+				<%= restaurant.get("address").escape('state') %>
+				<%= restaurant.get("address").escape('zip') %>,
 				<span class="glyphicon glyphicon-earphone"></span> <%= restaurant.escape('phone') %>,
-				<%= restaurant.escape('url') %>
+				<a href='<%= restaurant.escape('url') %>'><%= restaurant.escape('url') %></a>
 			</div>
 
 			<div class="row">&nbsp;</div>
@@ -172,6 +172,7 @@
 									<li class="media">
 										<div class="pull-left">
 										<% var thumbnail_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/users/photos/000/000/" + pad(user['id'], 3) + "/small/" + user['photo_file_name']; %>
+                    <% if (user['photo_file_name'] === null) {thumbnail_path = "http://s30.postimg.org/6bcndtozx/user_anonymous.png"} %>
 											<img class="media-object" src='<%=thumbnail_path%>' alt="http://s30.postimg.org/6bcndtozx/user_anonymous.png">
 							    	</div>
 										<div class="media-body">
