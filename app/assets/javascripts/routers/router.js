@@ -6,24 +6,36 @@ SS.Routers.Router = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
+    "search=:query": "search",
 		"restaurant/:id": "show",
 		"restaurants/new": "new",
     "category/:type": "categoryIndex"
 	},
 
+	search: function(query){
+		var that = this;
+		var indexView = new SS.Views.RestaurantsIndex({
+			collection: that.restaurants,
+      queryString: query
+		});
+		that._swapView(indexView);
+	},
+
 	index: function(){
 		var that = this;
 		var indexView = new SS.Views.RestaurantsIndex({
-			collection: that.restaurants
+			collection: that.restaurants,
+      queryString: "Desserts!"
 		});
 		that._swapView(indexView);
 	},
 
 	categoryIndex: function(type){
 		var that = this;
-
+    
 		var indexView = new SS.Views.RestaurantsIndex({
-			collection: that.restaurants.byType(type)
+			collection: that.restaurants.byType(type),
+      queryString: type
 		});
 		that._swapView(indexView);
 	},

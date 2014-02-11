@@ -5,5 +5,5 @@ class Picture < ActiveRecord::Base
 
   validates :restaurant, :photo, :presence => true
 
-  has_attached_file :photo , styles: { big: "800<>x540<>", small: "470x350!"}
+  has_attached_file :photo , styles: { big: "778x540!", small: "470x350!"}
 end

@@ -2,8 +2,9 @@ SS.Views.RestaurantsIndex = Backbone.View.extend({
   template: JST['restaurants/index'],
   tagName: 'ul',
 
-	initialize: function () {
-		this.listenTo(SS.restaurants, 'all', this.render);
+	initialize: function (options) {
+		this.queryString = options.queryString;
+    this.listenTo(SS.restaurants, 'all', this.render);
 	},
 
   render: function () {

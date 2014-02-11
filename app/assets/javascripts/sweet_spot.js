@@ -13,17 +13,12 @@ window.SS = {
 
 		SS.restaurants = new SS.Collections.Restaurants();
 
-		if (typeof CURRENT_SEARCH !== "undefined"){
-
 		SS.restaurants.fetch({
-			data: CURRENT_SEARCH,
 			success: function () {
 				new SS.Routers.Router( SS.restaurants, $rootEl);
 				Backbone.history.start();
 			}
 		});
-
-		};
   }
 };
 
