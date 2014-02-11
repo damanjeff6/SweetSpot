@@ -93,7 +93,7 @@ Restaurant.create!(:name => 'ETC Dessert Cafe', :phone => '(415) 566-3099', :url
 Address.create!(:restaurant_id => 21, :line1 => '1919 Irving St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94122', :lat => '37.763482', :lng => '-122.478678')
 Category.create!(:restaurant_id => 21, :fruit => true, :icecream => true, :tea => true)
 
-Restaurant.create!(:name => '100% Sweet Cafe', :phone => '(415) 221-1628', :url => 'yelp.com/biz/100-sweet-cafe-san-francisco')
+Restaurant.create!(:name => '100 Sweet Cafe', :phone => '(415) 221-1628', :url => 'yelp.com/biz/100-sweet-cafe-san-francisco')
 Address.create!(:restaurant_id => 22, :line1 => '2512 Clement St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94121', :lat => '37.782187', :lng => '-122.486294')
 Category.create!(:restaurant_id => 22, :fruit => true, :icecream => true, :tea => true)
 
