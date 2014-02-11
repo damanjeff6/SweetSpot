@@ -2,7 +2,7 @@
 
 SweetSpot is a Yelp clone built on Rails and Backbone.js.
 
-Restaurants can be searched by city given reviews and ratings. New restaurant listings can be created. Restaurant and User photos may be uploaded. Restaurant map and street views are automatically generated from restraunt address listing.
+Restaurants can be searched by restaurant name or dessert category. New restaurant listings can be created. Restaurant and User photos may be uploaded. One review and rating may be created per restaurant per user. Restaurant map and street views are automatically generated from restraunt address listing.
 
 Try it out here! http://sweetspot.jeffcsweet.com/
 
