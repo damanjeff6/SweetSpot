@@ -17,20 +17,25 @@ SS.Collections.Restaurants = Backbone.Collection.extend({
   },
   
   comparator: function(a, b) { 
-    var a = a.get('reviews');
-    var b = b.get('reviews');
+    var areviews = a.get('reviews');
+    var breviews = b.get('reviews');
+    
+    if (typeof(areviews) === "undefined" || typeof(breviews) === "undefined"){
+      return true;
+    }
     
     var sum1 = 0;
-    a.forEach(function(restaurant1) {
+    areviews.forEach(function(restaurant1) {
       sum1 += restaurant1.get('rating');
     });
-    var avg1 = sum1 / a.length;
-    
+    var avg1 = sum1 / areviews.length;
+
     var sum2 = 0;
-    b.forEach(function(restaurant2) {
+    
+    breviews.forEach(function(restaurant2) {
       sum2 += restaurant2.get('rating');
     });
-    var avg2 = sum2 / b.length;
+    var avg2 = sum2 / breviews.length;
         
     if (avg1 == avg2){ return 0 }
     
