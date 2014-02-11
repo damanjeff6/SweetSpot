@@ -48,16 +48,26 @@
 						 <div id="carousel-photo-tab" class="carousel slide" data-ride="carousel" data-interval="false">
 						   <!-- Indicators -->
 						   <ol class="carousel-indicators">
-						     <li data-target="#carousel-photo-tab" data-slide-to="0" class="active"></li>
-						     <li data-target="#carousel-photo-tab" data-slide-to="1"></li>
-						     <li data-target="#carousel-photo-tab" data-slide-to="2"></li>
+							 <% var setCarouselActive = true %>
+							 <% for (var i=0 ; i < restaurant.get("pictures").length; i++) { %>
+								 	 <% if (setCarouselActive) {%> 
+                     <li data-target="#carousel-photo-tab" data-slide-to="<%=i%>" class="active"></li> 
+                   <% } else { %>
+                     <li data-target="#carousel-photo-tab" data-slide-to="<%=i%>"></li>
+                   <% } %>
+								 <% setCarouselActive = false %>
+							 <% }; %>
 						   </ol>
 
 						   <!-- Wrapper for slides -->
 						   <div class="carousel-inner">
 							 <% var setActive = true %>
 							 <% restaurant.get("pictures").each(function (picture) { %>
-								 	 <% if (setActive) {%> <div class="item active"> <% } else { %> <div class="item"> <% } %>
+								 	 <% if (setActive) {%> 
+                     <div class="item active"> 
+                   <% } else { %> 
+                     <div class="item"> 
+                   <% } %>
 									 <% var img_path = "https://s3-us-west-1.amazonaws.com/sweetspotdev/pictures/photos/000/000/" + pad(picture.get('id'), 3) + "/big/base64.txt"; %>
 							      <img src='<%= img_path %>' alt="...">
 						     </div>
@@ -160,7 +170,9 @@
 
 			<div class="row">
 				<div class="well well-sm well-size">
-					<% if (restaurant.get("reviews").length === 0) { %> <h2 class="text-center">No Reviews Yet! You Can Be The First!</h2> <% } else { %>
+					<% if (restaurant.get("reviews").length === 0) { %> 
+            <h2 class="text-center">No Reviews Yet! You Can Be The First!</h2>
+          <% } else { %>
 					<ul class="media-list" id="review-section">
 						<% var user %>
 						<% var date %>
@@ -176,7 +188,9 @@
 											<img class="media-object" src='<%=thumbnail_path%>' alt="http://s30.postimg.org/6bcndtozx/user_anonymous.png">
 							    	</div>
 										<div class="media-body">
-											<h4 class="media-heading"><%= user['username'] %><small> <i>Posted on <%= (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() %></i></small></h4>
+											<h4 class="media-heading"><%= user['username'] %>
+                        <small> <i>Posted on <%=(date.getMonth()+1)+'/'+date.getDate()+'/'+date.getFullYear()%></i></small>
+                      </h4>
                       <% var reviewText = review.escape('body').replace(/\n/g,"<br />");%>
 										 	<p><%= reviewText %><br>
 											<strong>Rating: </strong>
