@@ -85,7 +85,7 @@ Restaurant.create!(:name => 'Golden Island Cafe', :phone => '(415) 759-9118', :u
 Address.create!(:restaurant_id => 19, :line1 => '1300 Noriega St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94122', :lat => '37.754446', :lng => '-122.477654')
 Category.create!(:restaurant_id => 19, :fruit => true, :tea => true)
 
-Restaurant.create!(:name => 'Kowloon Tong Dessert Cafe', :phone => '(415) 876-1289', :url => 'yelp.com/biz/kowloon-tong-dessert-cafe-san-francisco')
+Restaurant.create!(:name => 'Kowloon Tong', :phone => '(415) 876-1289', :url => 'yelp.com/biz/kowloon-tong-dessert-cafe-san-francisco')
 Address.create!(:restaurant_id => 20, :line1 => '393 7th Ave', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94118', :lat => '37.781361', :lng => '-122.465615')
 Category.create!(:restaurant_id => 20, :fruit => true, :icecream => true)
 
@@ -101,7 +101,7 @@ Restaurant.create!(:name => 'Hot Cookie', :phone => '(415) 621-2350', :url => 'y
 Address.create!(:restaurant_id => 23, :line1 => '407 Castro St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94114', :lat => '37.762327', :lng => '-122.435095')
 Category.create!(:restaurant_id => 23, :cookies => true)
 
-Restaurant.create!(:name => 'Beard Papa\'s Cream Puffs', :phone => '(415) 978-9972', :url => 'yelp.com/biz/yasukochis-sweet-stop-san-francisco')
+Restaurant.create!(:name => 'Beard Papa\'s', :phone => '(415) 978-9972', :url => 'yelp.com/biz/yasukochis-sweet-stop-san-francisco')
 Address.create!(:restaurant_id => 24, :line1 => '99 Yerba Buena Ln', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94103', :lat => '37.785198', :lng => '-122.403885')
 Category.create!(:restaurant_id => 24, :icecream => true, :tea => true)
 
@@ -113,7 +113,7 @@ Restaurant.create!(:name => 'Loving Cup', :phone => '(415) 440-6900', :url => 'l
 Address.create!(:restaurant_id => 26, :line1 => '2356 Polk St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94109', :lat => '37.798643', :lng => '-122.422151')
 Category.create!(:restaurant_id => 26, :icecream => true)
 
-Restaurant.create!(:name => 'Chantal Guillon Macarons', :phone => '(415) 864-2400', :url => 'chantalguillon.com')
+Restaurant.create!(:name => 'Chantal Guillon', :phone => '(415) 864-2400', :url => 'chantalguillon.com')
 Address.create!(:restaurant_id => 27, :line1 => '437 Hayes St', :line2 => '', :city => 'San Francisco', :state => 'CA', :zip => '94102', :lat => '37.776734', :lng => '-122.423669')
 Category.create!(:restaurant_id => 27)
 end
