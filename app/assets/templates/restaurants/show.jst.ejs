@@ -27,7 +27,7 @@
 				<%= restaurant.get("address").escape('state') %>
 				<%= restaurant.get("address").escape('zip') %>,
 				<span class="glyphicon glyphicon-earphone"></span> <%= restaurant.escape('phone') %>,
-				<%= restaurant.escape('url') %>
+				<a href="http://<%= restaurant.escape('url') %>" target="_blank"><%= restaurant.escape('url') %></a>
 			</div>
 
 			<div class="row">&nbsp;</div>
