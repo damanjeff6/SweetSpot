@@ -23,7 +23,7 @@
 														    <%= f.file_field :photo %>
 														  </p>
 														  <p>
-														    <%= f.submit 'Update Photo' %>
+														    <%= f.submit 'Update Photo', :id => "photoupload" %>
 														  </p>
 														<% end %>
 	                    </div>
@@ -33,3 +33,25 @@
 	    </div>
 	</div>
 </body>
+
+<div class="modal modal-static fade" id="modal-processing" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="text-center">
+                    <img src="http://www.travislayne.com/images/loading.gif" class="icon" />
+                    <h4>Uploading... <button type="button" class="close" style="float: none;" data-dismiss="modal" aria-hidden="true">×</button></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $('#photoupload').click(function(){
+     $( '#modal-processing' ).modal( 'toggle' );
+  });
+});
+</script>
+
