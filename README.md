@@ -20,11 +20,13 @@ The following technologies were used to build SweetSpot:
 - HTML5 
 - JavaScript 
 - JQuery
+- Paperclip
 - Pingdom 
 - Postgresql 
 - RESTful Api 
 - Ruby on Rails 
 - SQL 
 - Google Maps API (Maps+Street View)
+- Amazon S3
 
 Please feel free to send me an email at jeffrey.chen310@gmail.com with any comments or suggestions.
